@@ -15,6 +15,7 @@ class Product(models.Model):
     description = models.TextField()
     current_price = models.DecimalField(max_digits=7, decimal_places=2)
     created = models.DateTimeField(auto_now_add=True, null=True)
+    avg_rating = models.DecimalField(max_digits=3, decimal_places=2)
 
 
     def save(self, *args, **kwargs):
@@ -24,3 +25,8 @@ class Product(models.Model):
 
     def __unicode__(self):
         return self.title
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product)
+    image = models.ImageField()
+    thumb = models.ImageField()
