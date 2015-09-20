@@ -1,20 +1,21 @@
+{% load static from staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static "ico/apple-touch-icon-144-precomposed.png" %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static "ico/apple-touch-icon-114-precomposed.png" %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static "ico/apple-touch-icon-72-precomposed.png" %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static "ico/apple-touch-icon-57-precomposed.png" %}">
+    <link rel="shortcut icon" href="{% static "ico/favicon.png" %}">
     <title>Made in the USA - forged by us</title>
     <!-- Bootstrap core CSS -->
-    <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="{% static "bootstrap/css/bootstrap.css" %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
 
     <!-- Just for debugging purposes. -->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -30,7 +31,7 @@
             elements: true
         };
     </script>
-    <script src="assets/js/pace.min.js"></script>
+    <script src="{% static "js/pace.min.js" %}"></script>
 </head>
 
 <body>
@@ -189,8 +190,8 @@
                     class="icon-bar"> </span> <span class="icon-bar"> </span></button>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"><i
                     class="fa fa-shopping-cart colorWhite"> </i> <span
-                    class="cartRespons colorWhite"> Cart ($210.00) </span></button>
-            <a class="navbar-brand " href="index.html"> <img src="images/logo.png" alt="TSHOP"> </a>
+                    class="cartRespons colorWhite"> Cart ($211.00) </span></button>
+            <a class="navbar-brand " href="index.html"> <img src="{% static "images/logo.png" %}" alt="TSHOP"> </a>
 
             <!-- this part for mobile -->
             <div class="search-box pull-right hidden-lg hidden-md hidden-sm">
@@ -210,7 +211,7 @@
                         <tbody>
                         <tr class="miniCartProduct">
                             <td style="20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="images/product/3.jpg" alt="img"> </a>
+                                <div><a href="product-details.html"> <img src="{% static "images/product/3.jpg" %}" alt="img"> </a>
                                 </div>
                             </td>
                             <td style="40%">
@@ -227,7 +228,7 @@
                         </tr>
                         <tr class="miniCartProduct">
                             <td style="20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="images/product/2.jpg" alt="img"> </a>
+                                <div><a href="product-details.html"> <img src="{% static "images/product/2.jpg" %}" alt="img"> </a>
                                 </div>
                             </td>
                             <td style="40%">
@@ -244,7 +245,7 @@
                         </tr>
                         <tr class="miniCartProduct">
                             <td style="20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="images/product/5.jpg" alt="img"> </a>
+                                <div><a href="product-details.html"> <img src="{% static "images/product/5.jpg" %}" alt="img"> </a>
                                 </div>
                             </td>
                             <td style="40%">
@@ -261,7 +262,7 @@
                         </tr>
                         <tr class="miniCartProduct">
                             <td style="20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="images/product/3.jpg" alt="img"> </a>
+                                <div><a href="product-details.html"> <img src="{% static "images/product/3.jpg" %}" alt="img"> </a>
                                 </div>
                             </td>
                             <td style="40%">
@@ -278,7 +279,7 @@
                         </tr>
                         <tr class="miniCartProduct">
                             <td style="20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="images/product/3.jpg" alt="img"> </a>
+                                <div><a href="product-details.html"> <img src="{% static "images/product/3.jpg" %}" alt="img"> </a>
                                 </div>
                             </td>
                             <td style="40%">
@@ -345,19 +346,19 @@
                             </ul>
                             <ul class="col-lg-3  col-sm-3 col-md-3  col-xs-4">
                                 <li><a class="newProductMenuBlock" href="product-details.html"> <img
-                                        class="img-responsive" src="images/site/promo1.jpg" alt="product"> <span
+                                        class="img-responsive" src="{% static "images/site/promo1.jpg" %}" alt="product"> <span
                                         class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> JEANS </span>
                                 </a></li>
                             </ul>
                             <ul class="col-lg-3  col-sm-3 col-md-3 col-xs-4">
                                 <li><a class="newProductMenuBlock" href="product-details.html"> <img
-                                        class="img-responsive" src="images/site/promo2.jpg" alt="product"> <span
+                                        class="img-responsive" src="{% static "images/site/promo2.jpg" %}" alt="product"> <span
                                         class="ProductMenuCaption"> <i
                                         class="fa fa-caret-right"> </i> PARTY DRESS </span> </a></li>
                             </ul>
                             <ul class="col-lg-3  col-sm-3 col-md-3 col-xs-4">
                                 <li><a class="newProductMenuBlock" href="product-details.html"> <img
-                                        class="img-responsive" src="images/site/promo3.jpg" alt="product"> <span
+                                        class="img-responsive" src="{% static "images/site/promo3.jpg" %}" alt="product"> <span
                                         class="ProductMenuCaption"> <i class="fa fa-caret-right"> </i> SHOES </span>
                                 </a></li>
                             </ul>
@@ -527,131 +528,6 @@
 
             <!--- this part will be hidden for mobile version -->
             <div class="nav navbar-nav navbar-right hidden-xs">
-                <div class="dropdown  cartMenu "><a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i
-                        class="fa fa-shopping-cart"> </i> <span class="cartRespons"> Cart ($210.00) </span> <b
-                        class="caret"> </b> </a>
-
-                    <div class="dropdown-menu col-lg-4 col-xs-12 col-md-4 ">
-                        <div class="w100 miniCartTable scroll-pane">
-                            <table>
-                                <tbody>
-                                <tr class="miniCartProduct">
-                                    <td style="width:20%" class="miniCartProductThumb">
-                                        <div><a href="product-details.html"> <img src="images/product/3.jpg" alt="img">
-                                        </a></div>
-                                    </td>
-                                    <td style="width:40%">
-                                        <div class="miniCartDescription">
-                                            <h4><a href="product-details.html"> TSHOP Tshirt DO9 </a></h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-
-                                            <div class="price"><span> $22 </span></div>
-                                        </div>
-                                    </td>
-                                    <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="width:15%" class="miniCartSubtotal"><span> $33 </span></td>
-                                    <td style="width:5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="width:20%" class="miniCartProductThumb">
-                                        <div><a href="product-details.html"> <img src="images/product/2.jpg" alt="img">
-                                        </a></div>
-                                    </td>
-                                    <td style="width:40%">
-                                        <div class="miniCartDescription">
-                                            <h4><a href="product-details.html"> TShir TSHOP 09 </a></h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-
-                                            <div class="price"><span> $15 </span></div>
-                                        </div>
-                                    </td>
-                                    <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="width:15%" class="miniCartSubtotal"><span> $120 </span></td>
-                                    <td style="width:5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="width:20%" class="miniCartProductThumb">
-                                        <div><a href="product-details.html"> <img src="images/product/5.jpg" alt="img">
-                                        </a></div>
-                                    </td>
-                                    <td style="width:40%">
-                                        <div class="miniCartDescription">
-                                            <h4><a href="product-details.html"> Tshir 2014 </a></h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-
-                                            <div class="price"><span> $30 </span></div>
-                                        </div>
-                                    </td>
-                                    <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="width:15%" class="miniCartSubtotal"><span> $80 </span></td>
-                                    <td style="width:5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="width:20%" class="miniCartProductThumb">
-                                        <div><a href="product-details.html"> <img src="images/product/3.jpg" alt="img">
-                                        </a></div>
-                                    </td>
-                                    <td style="width:40%">
-                                        <div class="miniCartDescription">
-                                            <h4><a href="product-details.html"> TSHOP T shirt DO20 </a></h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-
-                                            <div class="price"><span> $15 </span></div>
-                                        </div>
-                                    </td>
-                                    <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="width:15%" class="miniCartSubtotal"><span> $55 </span></td>
-                                    <td style="width:5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="width:20%" class="miniCartProductThumb">
-                                        <div><a href="product-details.html"> <img src="images/product/4.jpg" alt="img">
-                                        </a></div>
-                                    </td>
-                                    <td style="width:40%">
-                                        <div class="miniCartDescription">
-                                            <h4><a href="product-details.html"> T shirt Black </a></h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-
-                                            <div class="price"><span> $44 </span></div>
-                                        </div>
-                                    </td>
-                                    <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="width:15%" class="miniCartSubtotal"><span> $40 </span></td>
-                                    <td style="width:5%" class="delete"><a> x </a></td>
-                                </tr>
-                                <tr class="miniCartProduct">
-                                    <td style="width:20%" class="miniCartProductThumb">
-                                        <div><a href="product-details.html"> <img src="images/site/winter.jpg"
-                                                                                  alt="img"> </a></div>
-                                    </td>
-                                    <td style="width:40%">
-                                        <div class="miniCartDescription">
-                                            <h4><a href="product-details.html"> G Star T shirt </a></h4>
-                                            <span class="size"> 12 x 1.5 L </span>
-
-                                            <div class="price"><span> $80 </span></div>
-                                        </div>
-                                    </td>
-                                    <td style="width:10%" class="miniCartQuantity"><a> X 1 </a></td>
-                                    <td style="width:15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                                    <td style="width:5%" class="delete"><a> x </a></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!--/.miniCartTable-->
-
-                        <div class="miniCartFooter text-right">
-                            <h3 class="text-right subtotal"> Subtotal: $210 </h3>
-                            <a class="btn btn-sm btn-danger"> <i class="fa fa-shopping-cart"> </i> VIEW CART </a> <a
-                                class="btn btn-sm btn-primary"> CHECKOUT </a></div>
-                        <!--/.miniCartFooter-->
-
-                    </div>
-                    <!--/.dropdown-menu-->
-                </div>
-                <!--/.cartMenu-->
 
                 <div class="search-box">
                     <div class="input-group">
@@ -682,345 +558,12 @@
 </div>
 <!-- /.Fixed navbar  -->
 
-<div class="banner">
-    <div class="full-container">
-        <div class="slider-content">
-            <ul id="pager" class="container">
-            </ul>
-            <div class="slider slider-v2">
-                <div class="slider-item slider-item-img1 "
-                     data-cycle-pager-template="<a href=#> LATEST COLLECTION </a>">
-                    <div class="sliderInfo">
-                        <div class="container">
-                            <div class="col-lg-5 col-md-5 col-sm-5 pull-right sliderText dark alpha80 hidden-xs">
-                                <div class="inner">
-                                    <h1>LATEST COLLECTION</h1>
 
-                                    <p class="hidden-xs"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                        sed diam nonummy nibh euismod tincidunt ut
-                                        laoreet dolore magna aliquam erat volutpa </p>
-                                    <a href="category.html" class="slide-link">SHOP NOW <span
-                                            class="arrowUnicode">►</span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <img alt="img" src="images/slider/slider3.jpg" class="img-responsive parallaximg sliderImg"></div>
-                <!--/.slider-item-->
 
-                <div class="slider-item slider-item-img2  parallax"
-                     data-cycle-pager-template="<a href=#> WOMEN COLLECTION </a>">
-                    <div class="sliderInfo">
-                        <div class="container">
-                            <div class="col-lg-5 col-md-5 col-sm-5 pull-left sliderText dark alpha80 hidden-xs">
-                                <div class="inner">
-                                    <h1>WOMEN COLLECTION</h1>
-
-                                    <p class="hidden-xs"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                        sed diam nonummy nibh euismod tincidunt ut
-                                        laoreet dolore magna aliquam erat volutpa </p>
-                                    <a href="category.html" class="slide-link">SHOP NOW <span
-                                            class="arrowUnicode">►</span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <img alt="img" src="images/slider/slider4.jpg" class="img-responsive parallaximg sliderImg"></div>
-                <!--/.slider-item-->
-
-                <div class="slider-item slider-item-img3  parallax"
-                     data-cycle-pager-template="<a href=#> NEW COLLECTION </a>">
-                    <div class="sliderInfo">
-                        <div class="container">
-                            <div class="col-lg-4 col-md-4 col-sm-5 pull-right sliderText dark alpha80 transformRight hidden-xs">
-                                <div class="inner">
-                                    <h1>NEW COLLECTION</h1>
-
-                                    <p class="hidden-xs"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                        sed diam nonummy nibh euismod tincidunt ut
-                                        laoreet dolore magna aliquam erat volutpa </p>
-                                    <a href="category.html" class="slide-link">SHOP NOW <span
-                                            class="arrowUnicode">►</span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <img alt="img" src="images/slider/slider2.jpg" class="img-responsive parallaximg sliderImg"></div>
-                <!--/.slider-item-->
-            </div>
-            <!--/.slider-v2-->
-        </div>
-        <!--/.slider-content-->
-    </div>
-    <!--/.full-container-->
-</div>
-<!--/.banner style2-->
-
-<div class="container main-container">
-
-    <!-- Main component call to action -->
-
-    <div class="row featuredPostContainer globalPadding style2">
-        <h3 class="section-title style2 text-center"><span>NEW ARRIVALS</span></h3>
-
-        <div id="productslider" class="owl-carousel owl-theme">
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
-                       data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-
-                    <div class="image">
-                        <div class="quickview">
-                            <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal"
-                               data-toggle="modal"> Quick View </a>
-                        </div>
-                        <a href="product-details.html"><img src="images/product/34.jpg" alt="img"
-                                                            class="img-responsive"></a>
-
-                        <div class="promotion"><span class="new-product"> NEW</span> <span
-                                class="discount">15% OFF</span></div>
-                    </div>
-                    <div class="description">
-                        <h4><a href="product-details.html">consectetuer adipiscing </a></h4>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <span class="size">XL / XXL / S </span></div>
-                    <div class="price"><span>$25</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
-                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
-                       data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-
-                    <div class="image">
-                        <div class="quickview">
-                            <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal"
-                               data-toggle="modal"> Quick View </a>
-                        </div>
-                        <a href="product-details.html"><img src="images/product/30.jpg" alt="img"
-                                                            class="img-responsive"></a>
-
-                        <div class="promotion"><span class="discount">15% OFF</span></div>
-                    </div>
-                    <div class="description">
-                        <h4><a href="product-details.html">luptatum zzril delenit</a></h4>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <span class="size">XL / XXL / S </span></div>
-                    <div class="price"><span>$25</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
-                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
-                       data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-
-                    <div class="image">
-                        <div class="quickview">
-                            <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal"
-                               data-toggle="modal"> Quick View </a>
-                        </div>
-                        <a href="product-details.html"><img src="images/product/36.jpg" alt="img"
-                                                            class="img-responsive"></a>
-
-                        <div class="promotion"><span class="new-product"> NEW</span></div>
-                    </div>
-                    <div class="description">
-                        <h4><a href="product-details.html">eleifend option </a></h4>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <span class="size">XL / XXL / S </span></div>
-                    <div class="price"><span>$25</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
-                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
-                       data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-
-                    <div class="image">
-                        <div class="quickview">
-                            <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal"
-                               data-toggle="modal"> Quick View </a>
-                        </div>
-                        <a href="product-details.html"><img src="images/product/9.jpg" alt="img" class="img-responsive"></a>
-                    </div>
-                    <div class="description">
-                        <h4><a href="product-details.html">mutationem consuetudium </a></h4>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <span class="size">XL / XXL / S </span></div>
-                    <div class="price"><span>$25</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
-                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
-                       data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-
-                    <div class="image">
-                        <div class="quickview">
-                            <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal"
-                               data-toggle="modal"> Quick View </a>
-                        </div>
-                        <a href="product-details.html"><img src="images/product/12.jpg" alt="img"
-                                                            class="img-responsive"></a></div>
-                    <div class="description">
-                        <h4><a href="product-details.html">sequitur mutationem </a></h4>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <span class="size">XL / XXL / S </span></div>
-                    <div class="price"><span>$25</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
-                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
-                       data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-
-                    <div class="image">
-                        <div class="quickview">
-                            <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal"
-                               data-toggle="modal"> Quick View </a>
-                        </div>
-                        <a href="product-details.html"><img src="images/product/13.jpg" alt="img"
-                                                            class="img-responsive"></a></div>
-                    <div class="description">
-                        <h4><a href="product-details.html">consuetudium lectorum.</a></h4>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <span class="size">XL / XXL / S </span></div>
-                    <div class="price"><span>$25</span> <span class="old-price">$75</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
-                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
-                       data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-
-                    <div class="image">
-                        <div class="quickview">
-                            <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal"
-                               data-toggle="modal"> Quick View </a>
-                        </div>
-                        <a href="product-details.html"><img src="images/product/21.jpg" alt="img"
-                                                            class="img-responsive"></a></div>
-                    <div class="description">
-                        <h4><a href="product-details.html">parum claram</a></h4>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <span class="size">XL / XXL / S </span></div>
-                    <div class="price"><span>$25</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
-                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
-                       data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-
-                    <div class="image">
-                        <div class="quickview">
-                            <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal"
-                               data-toggle="modal"> Quick View </a>
-                        </div>
-                        <a href="product-details.html"><img src="images/product/24.jpg" alt="img"
-                                                            class="img-responsive"></a></div>
-                    <div class="description">
-                        <h4><a href="product-details.html">duis dolore </a></h4>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <span class="size">XL / XXL / S </span></div>
-                    <div class="price"><span>$25</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
-                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
-                </div>
-            </div>
-            <div class="item">
-                <div class="product">
-                    <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
-                       data-placement="left">
-                        <i class="glyphicon glyphicon-heart"></i>
-                    </a>
-
-                    <div class="image">
-                        <div class="quickview">
-                            <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal"
-                               data-toggle="modal"> Quick View </a>
-                        </div>
-                        <a href="product-details.html"><img src="images/product/15.jpg" alt="img"
-                                                            class="img-responsive"></a></div>
-                    <div class="description">
-                        <h4><a href="product-details.html">feugait nulla facilisi</a></h4>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-                        <span class="size">XL / XXL / S </span></div>
-                    <div class="price"><span>$25</span> <span class="old-price">$75</span></div>
-                    <div class="action-control"><a class="btn btn-primary"> <span class="add2cart"><i
-                            class="glyphicon glyphicon-shopping-cart"> </i> Add to cart </span> </a></div>
-                </div>
-            </div>
-        </div>
-        <!--/.productslider-->
-
-    </div>
-    <!--/.featuredPostContainer-->
-</div>
-<!-- /main container -->
-
-<div class="parallax-section parallax-image-1">
-    <div class="container">
-        <div class="row ">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="parallax-content clearfix">
-                    <h1 class="parallaxPrce"> $200 </h1>
-
-                    <h2 class="uppercase">FREE INTERNATIONAL SHIPPING! Get Free Shipping Coupons</h2>
-
-                    <h3> Energistically develop parallel mindshare rather than premier deliverables. </h3>
-
-                    <div style="clear:both"></div>
-                    <a class="btn btn-discover "> <i class="fa fa-shopping-cart"></i> SHOP NOW </a></div>
-            </div>
-        </div>
-        <!--/.row-->
-    </div>
-    <!--/.container-->
-</div>
-<!--/.parallax-image-1-->
-
-<div class="container main-container">
 {% block content %}
 
 {% endblock %}
-</div>
+
 <!--main-container-->
 
 <div class="parallax-section parallax-image-2">
@@ -1266,40 +809,40 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
 </script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
 <!-- include jqueryCycle plugin -->
-<script src="assets/js/jquery.cycle2.min.js"></script>
+<script src="{% static "js/jquery.cycle2.min.js" %}"></script>
 <!-- include easing plugin -->
-<script src="assets/js/jquery.easing.1.3.js"></script>
+<script src="{% static "js/jquery.easing.1.3.js" %}"></script>
 
 <!-- include  parallax plugin -->
-<script type="text/javascript" src="assets/js/jquery.parallax-1.1.js"></script>
+<script type="text/javascript" src="{% static "js/jquery.parallax-1.1.js" %}"></script>
 
 <!-- optionally include helper plugins -->
-<script type="text/javascript" src="assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="{% static "js/helper-plugins/jquery.mousewheel.min.js" %}"></script>
 
 <!-- include mCustomScrollbar plugin //Custom Scrollbar  -->
 
-<script type="text/javascript" src="assets/js/jquery.mCustomScrollbar.js"></script>
+<script type="text/javascript" src="{% static "js/jquery.mCustomScrollbar.js" %}"></script>
 
 <!-- include checkRadio plugin //Custom check & Radio  -->
-<script type="text/javascript" src="assets/js/ion-checkRadio/ion.checkRadio.min.js"></script>
+<script type="text/javascript" src="{% static "js/ion-checkRadio/ion.checkRadio.min.js" %}"></script>
 
 <!-- include grid.js // for equal Div height  -->
-<script src="assets/js/grids.js"></script>
+<script src="{% static "js/grids.js" %}"></script>
 
 <!-- include carousel slider plugin  -->
-<script src="assets/js/owl.carousel.min.js"></script>
+<script src="{% static "js/owl.carousel.min.js" %}"></script>
 
 <!-- jQuery minimalect // custom select   -->
-<script src="assets/js/jquery.minimalect.min.js"></script>
+<script src="{% static "js/jquery.minimalect.min.js" %}"></script>
 
 <!-- include touchspin.js // touch friendly input spinner component   -->
-<script src="assets/js/bootstrap.touchspin.js"></script>
+<script src="{% static "js/bootstrap.touchspin.js" %}"></script>
 
 <!-- include custom script for only homepage  -->
-<script src="assets/js/home.js"></script>
+<script src="{% static "js/home.js" %}"></script>
 <!-- include custom script for site  -->
-<script src="assets/js/script.js"></script>
+<script src="{% static "js/script.js" %}"></script>
 </body>
 </html>

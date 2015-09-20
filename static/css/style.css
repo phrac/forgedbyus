@@ -21,12 +21,12 @@
 17.  ABOUT PAGE
 18.  CONTACT US PAGE
 19.  PRODUCT MODAL [Qick View]
-20.  SUBSCRIBE | PROMOTIONAL MODAL 
+20.  SUBSCRIBE | PROMOTIONAL MODAL
 21.  WEB PAGE PROGRESS BAR CSS
 22.  CUSTOM RESPONSIVE
 
 /* =============================================================== */
-/* IMPORT CSS 
+/* IMPORT CSS
 /* =============================================================== */
 @import url("owl.carousel.css");
 /* owl.carousel */
@@ -1441,7 +1441,7 @@ legend {
 }
 
 /* =============================================================== */
-/* HOME PAGE BOXES SLIDER 
+/* HOME PAGE BOXES SLIDER
 /* =============================================================== */
 
 .box-pagination {
@@ -1480,7 +1480,7 @@ legend {
 }
 
 .arrow-left {
-    background: url(../../images/arrows.png) no-repeat left top;
+    background: url(../images/arrows.png) no-repeat left top;
     position: absolute;
     left: 10px;
     top: 50%;
@@ -1491,7 +1491,7 @@ legend {
 }
 
 .arrow-right {
-    background: url(../../images/arrows.png) no-repeat left bottom;
+    background: url(../images/arrows.png) no-repeat left bottom;
     position: absolute;
     right: 10px;
     top: 50%;
@@ -1817,11 +1817,11 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 }
 
 /* =============================================================== */
-/* HOME PAGE SLIDER  
+/* HOME PAGE SLIDER
 /* =============================================================== */
 
 .sliderImg {
-    background: url('../../images/site/loading1.gif') center center no-repeat; /* prealoder */
+    background: url('../images/site/loading1.gif') center center no-repeat; /* prealoder */
 }
 
 .banner {
@@ -2251,7 +2251,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 /*  // Style   2  end*/
 
 /* =============================================================== */
-/* HOME PAGE LOOK 2  
+/* HOME PAGE LOOK 2
 /* =============================================================== */
 
 .home-intro h2 {
@@ -2486,7 +2486,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 /* ---------- // Home look 2 end //--------*/
 
 /* =============================================================== */
-/* HOME PAGE LOOK 3  
+/* HOME PAGE LOOK 3
 /* =============================================================== */
 
 #imageShowCase {
@@ -3113,7 +3113,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 }
 
 .parallax-image-1 {
-    background: url(../../images/parallax/parallax.jpg);
+    background: url(../images/parallax/parallax.jpg);
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -3226,7 +3226,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 /***  -------  Parallax section 2  ------- ***/
 
 .parallax-image-2 {
-    background: url(../../images/parallax/people-collage.jpg) fixed;
+    background: url(../images/parallax/people-collage.jpg) fixed;
     background-attachment: fixed; /* IE FIX */
 }
 
@@ -4431,7 +4431,7 @@ tr.CartProduct td, tr.CartProduct th {
 }
 
 .parallax-image-aboutus {
-    background: url(../../images/site/about-bg.jpg) no-repeat 50% -80px fixed;
+    background: url(../images/site/about-bg.jpg) no-repeat 50% -80px fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -4716,7 +4716,7 @@ div.quickview {
 /* =============================================================== */
 
 #modalAds .modal-bg-1 {
-    background: url(../../images/site/modal-img-1.jpg) right bottom no-repeat;
+    background: url(../images/site/modal-img-1.jpg) right bottom no-repeat;
     background-color: #F3F6FB;
 }
 
