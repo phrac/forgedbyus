@@ -16,7 +16,7 @@ class Product(models.Model):
     current_price = models.DecimalField(max_digits=7, decimal_places=2)
     created = models.DateTimeField(auto_now_add=True, null=True)
     avg_rating = models.DecimalField(max_digits=3, decimal_places=2)
-
+    clicks = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
         if not self.product_id:
