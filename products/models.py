@@ -1,7 +1,10 @@
 from django.db import models
 
+import random
+import string
+
 def id_generator():
-    return 'fbu'.join(random.choice(string.ascii_uppercase + string.digits) for x in range(7))
+    return ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(10))
 
 class Category(models.Model):
     name = models.CharField(max_length=32, unique=True)
