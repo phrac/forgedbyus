@@ -3,6 +3,20 @@ from django.db import models
 def id_generator():
     return 'fbu'.join(random.choice(string.ascii_uppercase + string.digits) for x in range(7))
 
+class Category(models.Model):
+    name = models.CharField(max_length=32, unique=True)
+    parent_category = models.ForeignKey('Category', null=True)
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
+    def __unicode__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        pass
+
+
 class Product(models.Model):
     product_id = models.CharField(max_length=13, unique=True)
     title = models.CharField(max_length=64)
@@ -30,3 +44,13 @@ class ProductImage(models.Model):
     product = models.ForeignKey(Product)
     image = models.ImageField()
     thumb = models.ImageField()
+
+class Collection(models.Model):
+    name = models.CharField(max_length=32, unique=True)
+    products = models.ManyToManyField(Product)
+    image = models.ImageField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.name
