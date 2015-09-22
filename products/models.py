@@ -6,7 +6,7 @@ def id_generator():
 class Product(models.Model):
     product_id = models.CharField(max_length=13, unique=True)
     title = models.CharField(max_length=64)
-    asin = models.CharField(max_length=10, null=True, blank=True, unique=True)
+    asin = models.CharField(max_length=10, null=True, blank=True)
     brand = models.CharField(max_length=128, null=True)
     manufacturer = models.CharField(max_length=128, null=True)
     state_of_origin = models.CharField(max_length=2, null=True, blank=True)

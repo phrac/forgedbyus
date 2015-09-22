@@ -36,118 +36,6 @@
 
 <body>
 
-<!-- Modal Login start -->
-<div class="modal signUpContent fade" id="ModalLogin" tabindex="-1" role="dialog">
-    <div class="modal-dialog ">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
-                <h3 class="modal-title-site text-center"> Login to TSHOP </h3>
-            </div>
-            <div class="modal-body">
-                <div class="form-group login-username">
-                    <div>
-                        <input name="log" id="login-user" class="form-control input" size="20"
-                               placeholder="Enter Username" type="text">
-                    </div>
-                </div>
-                <div class="form-group login-password">
-                    <div>
-                        <input name="Password" id="login-password" class="form-control input" size="20"
-                               placeholder="Password" type="password">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div>
-                        <div class="checkbox login-remember">
-                            <label>
-                                <input name="rememberme" value="forever" checked="checked" type="checkbox">
-                                Remember Me </label>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <input name="submit" class="btn  btn-block btn-lg btn-primary" value="LOGIN" type="submit">
-                    </div>
-                </div>
-                <!--userForm-->
-
-            </div>
-            <div class="modal-footer">
-                <p class="text-center"> Not here before? <a data-toggle="modal" data-dismiss="modal"
-                                                            href="#ModalSignup"> Sign Up. </a> <br>
-                    <a href="forgot-password.html"> Lost your password? </a></p>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-
-    </div>
-    <!-- /.modal-dialog -->
-
-</div>
-<!-- /.Modal Login -->
-
-<!-- Modal Signup start -->
-<div class="modal signUpContent fade" id="ModalSignup" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
-                <h3 class="modal-title-site text-center"> REGISTER </h3>
-            </div>
-            <div class="modal-body">
-                <div class="control-group"><a class="fb_button btn  btn-block btn-lg " href="#"> SIGNUP WITH
-                    FACEBOOK </a></div>
-                <h5 style="padding:10px 0 10px 0;" class="text-center"> OR </h5>
-
-                <div class="form-group reg-username">
-                    <div>
-                        <input name="login" class="form-control input" size="20" placeholder="Enter Username"
-                               type="text">
-                    </div>
-                </div>
-                <div class="form-group reg-email">
-                    <div>
-                        <input name="reg" class="form-control input" size="20" placeholder="Enter Email" type="text">
-                    </div>
-                </div>
-                <div class="form-group reg-password">
-                    <div>
-                        <input name="password" class="form-control input" size="20" placeholder="Password"
-                               type="password">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div>
-                        <div class="checkbox login-remember">
-                            <label>
-                                <input name="rememberme" id="rememberme" value="forever" checked="checked"
-                                       type="checkbox">
-                                Remember Me </label>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <input name="submit" class="btn  btn-block btn-lg btn-primary" value="REGISTER" type="submit">
-                    </div>
-                </div>
-                <!--userForm-->
-
-            </div>
-            <div class="modal-footer">
-                <p class="text-center"> Already member? <a data-toggle="modal" data-dismiss="modal" href="#ModalLogin">
-                    Sign in </a></p>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-
-    </div>
-    <!-- /.modal-dialog -->
-
-</div>
-
 <!-- Fixed navbar start -->
 <div class="navbar navbar-tshop navbar-fixed-top megamenu" role="navigation">
     <div class="navbar-top">
@@ -159,10 +47,7 @@
                         <ul class="userMenu ">
                             <li><a href="#"> <span class="hidden-xs">HELP</span><i
                                     class="glyphicon glyphicon-info-sign hide visible-xs "></i> </a></li>
-                            <li class="phone-number">
-                                <a href="callto:+88016000000">
-                                    <span> <i class="glyphicon glyphicon-phone-alt "></i></span>
-                                    <span class="hidden-xs" style="margin-left:5px"> 88 01680 53 1352 </span> </a></li>
+
                         </ul>
                     </div>
                 </div>
@@ -202,130 +87,6 @@
 
             </div>
         </div>
-
-        <!-- this part is duplicate from cartMenu  keep it for mobile -->
-        <div class="navbar-cart  collapse">
-            <div class="cartMenu  col-lg-4 col-xs-12 col-md-4 ">
-                <div class="w100 miniCartTable scroll-pane">
-                    <table>
-                        <tbody>
-                        <tr class="miniCartProduct">
-                            <td style="20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="{% static "images/product/3.jpg" %}" alt="img"> </a>
-                                </div>
-                            </td>
-                            <td style="40%">
-                                <div class="miniCartDescription">
-                                    <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                    <span class="size"> 12 x 1.5 L </span>
-
-                                    <div class="price"><span> $8.80 </span></div>
-                                </div>
-                            </td>
-                            <td style="10%" class="miniCartQuantity"><a> X 1 </a></td>
-                            <td style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                            <td style="5%" class="delete"><a> x </a></td>
-                        </tr>
-                        <tr class="miniCartProduct">
-                            <td style="20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="{% static "images/product/2.jpg" %}" alt="img"> </a>
-                                </div>
-                            </td>
-                            <td style="40%">
-                                <div class="miniCartDescription">
-                                    <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                    <span class="size"> 12 x 1.5 L </span>
-
-                                    <div class="price"><span> $8.80 </span></div>
-                                </div>
-                            </td>
-                            <td style="10%" class="miniCartQuantity"><a> X 1 </a></td>
-                            <td style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                            <td style="5%" class="delete"><a> x </a></td>
-                        </tr>
-                        <tr class="miniCartProduct">
-                            <td style="20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="{% static "images/product/5.jpg" %}" alt="img"> </a>
-                                </div>
-                            </td>
-                            <td style="40%">
-                                <div class="miniCartDescription">
-                                    <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                    <span class="size"> 12 x 1.5 L </span>
-
-                                    <div class="price"><span> $8.80 </span></div>
-                                </div>
-                            </td>
-                            <td style="10%" class="miniCartQuantity"><a> X 1 </a></td>
-                            <td style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                            <td style="5%" class="delete"><a> x </a></td>
-                        </tr>
-                        <tr class="miniCartProduct">
-                            <td style="20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="{% static "images/product/3.jpg" %}" alt="img"> </a>
-                                </div>
-                            </td>
-                            <td style="40%">
-                                <div class="miniCartDescription">
-                                    <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                    <span class="size"> 12 x 1.5 L </span>
-
-                                    <div class="price"><span> $8.80 </span></div>
-                                </div>
-                            </td>
-                            <td style="10%" class="miniCartQuantity"><a> X 1 </a></td>
-                            <td style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                            <td style="5%" class="delete"><a> x </a></td>
-                        </tr>
-                        <tr class="miniCartProduct">
-                            <td style="20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="{% static "images/product/3.jpg" %}" alt="img"> </a>
-                                </div>
-                            </td>
-                            <td style="40%">
-                                <div class="miniCartDescription">
-                                    <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                    <span class="size"> 12 x 1.5 L </span>
-
-                                    <div class="price"><span> $8.80 </span></div>
-                                </div>
-                            </td>
-                            <td style="10%" class="miniCartQuantity"><a> X 1 </a></td>
-                            <td style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                            <td style="5%" class="delete"><a> x </a></td>
-                        </tr>
-                        <tr class="miniCartProduct">
-                            <td style="20%" class="miniCartProductThumb">
-                                <div><a href="product-details.html"> <img src="images/product/4.jpg" alt="img"> </a>
-                                </div>
-                            </td>
-                            <td style="40%">
-                                <div class="miniCartDescription">
-                                    <h4><a href="product-details.html"> TSHOP T shirt Black </a></h4>
-                                    <span class="size"> 12 x 1.5 L </span>
-
-                                    <div class="price"><span> $8.80 </span></div>
-                                </div>
-                            </td>
-                            <td style="10%" class="miniCartQuantity"><a> X 1 </a></td>
-                            <td style="15%" class="miniCartSubtotal"><span> $8.80 </span></td>
-                            <td style="5%" class="delete"><a> x </a></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!--/.miniCartTable-->
-
-                <div class="miniCartFooter  miniCartFooterInMobile text-right">
-                    <h3 class="text-right subtotal"> Subtotal: $210 </h3>
-                    <a class="btn btn-sm btn-danger"> <i class="fa fa-shopping-cart"> </i> VIEW CART </a> <a
-                        class="btn btn-sm btn-primary"> CHECKOUT </a></div>
-                <!--/.miniCartFooter-->
-
-            </div>
-            <!--/.cartMenu-->
-        </div>
-        <!--/.navbar-cart-->
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -557,8 +318,6 @@
 
 </div>
 <!-- /.Fixed navbar  -->
-
-
 
 {% block content %}
 
