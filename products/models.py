@@ -1,4 +1,7 @@
+from django.conf import settings
+from localflavor.us.models import USStateField
 from django.db import models
+
 from affiliates.models import Affiliate
 
 import random
@@ -28,7 +31,7 @@ class Product(models.Model):
     asin = models.CharField(max_length=10, null=True, blank=True)
     brand = models.CharField(max_length=128, null=True)
     manufacturer = models.CharField(max_length=128, null=True)
-    state_of_origin = models.CharField(max_length=2, null=True, blank=True)
+    state_of_origin = USStateField()
     usa_verified = models.BooleanField(default=False)
     short_description = models.TextField()
     description = models.TextField()
@@ -44,6 +47,12 @@ class Product(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def get_amazon_url(self):
+        if self.asin:
+            return "http://amazon.com/dp/%s/tag=%s" % (self.asin, settings.AMAZON_ASSOCIATE_TAG)
+        else:
+            return None
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product)
