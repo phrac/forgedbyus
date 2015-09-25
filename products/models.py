@@ -1,4 +1,5 @@
 from django.db import models
+from affiliates.models import Affiliate
 
 import random
 import string
@@ -22,6 +23,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     product_id = models.CharField(max_length=13, unique=True)
+    affiliated_id = models.ForeignKey(Affiliate)
     title = models.CharField(max_length=64)
     asin = models.CharField(max_length=10, null=True, blank=True)
     brand = models.CharField(max_length=128, null=True)

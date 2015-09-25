@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'storages',
 
     # local apps
+    'affiliates',
     'products',
 )
 
