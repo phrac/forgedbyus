@@ -4,4 +4,9 @@ from django.template import RequestContext
 from products.models import Product
 
 def index(request):
-    return render(request, 'index.html')
+    products = Product.objects.all().order_by('-created')[:8]
+    return render(request,
+                    'index.html',
+                    {
+                        'products':products,
+                    })

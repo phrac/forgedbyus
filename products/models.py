@@ -50,12 +50,12 @@ class Product(models.Model):
 
     def get_amazon_url(self):
         if self.asin:
-            return "http://amazon.com/dp/%s/tag=%s" % (self.asin, settings.AMAZON_ASSOCIATE_TAG)
+            return "http://amazon.com/dp/%s/tag=%s" % (self.asin, settings.AWS_ASSOCIATE_TAG)
         else:
             return None
 
 class ProductImage(models.Model):
-    product = models.ForeignKey(Product)
+    product = models.ForeignKey(Product, related_name='images')
     image = models.ImageField()
     thumb = models.ImageField()
 
