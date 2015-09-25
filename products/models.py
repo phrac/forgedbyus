@@ -26,18 +26,17 @@ class Category(models.Model):
 
 class Product(models.Model):
     product_id = models.CharField(max_length=13, unique=True, blank=True)
-    affiliated_id = models.ForeignKey(Affiliate)
-    title = models.CharField(max_length=64)
+    affiliate_id = models.ForeignKey(Affiliate)
+    title = models.CharField(max_length=256)
     asin = models.CharField(max_length=10, null=True, blank=True)
     brand = models.CharField(max_length=128, null=True)
     manufacturer = models.CharField(max_length=128, null=True)
     state_of_origin = USStateField()
     usa_verified = models.BooleanField(default=False)
     short_description = models.TextField()
-    description = models.TextField()
+    description = models.TextField(null=True)
     current_price = models.IntegerField()
-    created = models.DateTimeField(auto_now_add=True, null=True)
-    avg_rating = models.DecimalField(max_digits=3, decimal_places=2)
+    created = models.DateTimeField(auto_now_add=True)
     clicks = models.IntegerField(default=0)
     amazon_prime = models.BooleanField(default=False)
 
