@@ -25,7 +25,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    product_id = models.CharField(max_length=13, unique=True, blank=True)
+    product_id = models.CharField(db_index=True, max_length=13, unique=True, blank=True)
     affiliate_id = models.ForeignKey(Affiliate)
     title = models.CharField(max_length=256)
     asin = models.CharField(max_length=10, null=True, blank=True)
