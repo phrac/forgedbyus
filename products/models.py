@@ -25,7 +25,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    product_id = models.CharField(max_length=13, unique=True)
+    product_id = models.CharField(max_length=13, unique=True, blank=True)
     affiliated_id = models.ForeignKey(Affiliate)
     title = models.CharField(max_length=64)
     asin = models.CharField(max_length=10, null=True, blank=True)
@@ -35,7 +35,7 @@ class Product(models.Model):
     usa_verified = models.BooleanField(default=False)
     short_description = models.TextField()
     description = models.TextField()
-    current_price = models.DecimalField(max_digits=7, decimal_places=2)
+    current_price = models.IntegerField()
     created = models.DateTimeField(auto_now_add=True, null=True)
     avg_rating = models.DecimalField(max_digits=3, decimal_places=2)
     clicks = models.IntegerField(default=0)
