@@ -39,6 +39,7 @@ class Product(models.Model):
     created = models.DateTimeField(auto_now_add=True, null=True)
     avg_rating = models.DecimalField(max_digits=3, decimal_places=2)
     clicks = models.IntegerField(default=0)
+    amazon_prime = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.product_id:
