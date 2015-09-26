@@ -38,9 +38,10 @@ class Product(models.Model):
     short_description = models.TextField()
     description = models.TextField(null=True, blank=True)
     current_price = models.IntegerField()
-    created = models.DateTimeField(auto_now_add=True)
-    clicks = models.IntegerField(default=0)
+    detail_views = models.IntegerField(default=0)
     amazon_prime = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if not self.product_id:
