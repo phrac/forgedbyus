@@ -4539,8 +4539,8 @@ div.quickview {
     -moz-o-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     left: auto;
     min-width: 100px;
-    max-height: 40px;
-    height: 40px !important;
+    max-height: 80px;
+    height: 80px !important;
     opacity: 0;
     -webkit-opacity: 0;
     -ms-opacity: 0;

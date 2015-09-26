@@ -91,22 +91,23 @@
 
                     <div class="image">
                         <div class="quickview">
-                            <a title="Quick View" class="btn btn-xs  btn-quickview" data-target="#product-details-modal"
-                               data-toggle="modal"> Quick View </a>
+                            <a title="Quick View" class="btn-quickview" data-target="#product-details-modal"
+                               data-toggle="modal"><strong>{{ product.title }}</strong> <br />by {{ product.brand }}</a>
                         </div>
-                        <div class="promotion"><span class="discount"> {{ product.state_of_origin }}</span></div>
+                        <div class="promotion">
+
+                            <span class="discount"> {{ product.state_of_origin|default:"USA"}}</span></div>
                         {% with product.images.all|first as image %}
                         <a href="product-details.html">
                             <img src="{{ image.image.url }}" alt="img" class="img-responsive"></a>
                         {% endwith %}
 
+                    </div>
+                    <br />
 
-                    </div>
-                    <div class="description">
-                        <h4><a href="product-details.html">{{ product.title }} </a></h4>
-                    </div>
+
                     <div class="action-control"><a href="{{ product.get_amazon_url }}" class="btn btn-primary"> <span class="add2cart">
-                         ${{ product.current_price}} on Amazon </span> </a></div>
+                         ${{ product.current_price}} on {{ product.affiliate_id.name }} </span> </a></div>
                 </div>
             </div>
             {% endfor %}

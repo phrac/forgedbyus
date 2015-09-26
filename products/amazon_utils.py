@@ -28,6 +28,8 @@ def get_asin(asin):
         az = amazon.lookup(ItemId=asin)
         price = int(math.ceil(az.price_and_currency[0]))
         title = az.title.split(',', 1)[0]
+        title = title.split('(', 1)[0]
+        
         product = Product(
                           affiliate_id=afid,
                           asin=asin,
