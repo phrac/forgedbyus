@@ -32,14 +32,16 @@ class Product(models.Model):
     title = models.CharField(max_length=256)
     asin = models.CharField(max_length=10, null=True, blank=True)
     brand = models.ForeignKey(Brand)
-    manufacturer = models.CharField(max_length=128, null=True)
+    manufacturer = models.CharField(max_length=128, null=True, blank=True)
     state_of_origin = USStateField(blank=True)
     usa_verified = models.BooleanField(default=False)
     short_description = models.TextField()
     description = models.TextField(null=True, blank=True)
+    msrp = models.IntegerField(null=True, blank=True)
     current_price = models.IntegerField()
     detail_views = models.IntegerField(default=0)
     amazon_prime = models.BooleanField(default=False)
+    featured = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -53,7 +55,7 @@ class Product(models.Model):
 
     def get_amazon_url(self):
         if self.asin:
-            return "http://amazon.com/dp/%s/tag=%s" % (self.asin, settings.AWS_ASSOCIATE_TAG)
+            return "http://www.amazon.com/dp/%s/?tag=%s" % (self.asin, settings.AWS_ASSOCIATE_TAG)
         else:
             return None
 
@@ -65,7 +67,7 @@ class Product(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('products.views.detail', [self.product_id])
+        return ('products.views.details', [self.product_id])
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, related_name='images')

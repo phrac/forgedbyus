@@ -28,17 +28,22 @@ def get_asin(asin):
                            settings.AWS_ASSOCIATE_TAG)
         az = amazon.lookup(ItemId=asin)
         price = int(math.ceil(az.price_and_currency[0]))
+        if az.list_price[0] is not None:
+            msrp = int(math.ceil(az.list_price[0]))
+        else:
+            msrp = None
         title = az.title.split(',', 1)[0]
         title = title.split('(', 1)[0]
         brand, _created = Brand.objects.get_or_create(name=az.brand)
         product = Product(
-                          affiliate_id=afid,
+                          affiliate=afid,
                           asin=asin,
                           short_description=az.title,
                           title=title,
                           brand=brand,
                           manufacturer=az.manufacturer,
                           current_price=price,
+                          msrp=msrp,
                           )
 
         product.save()

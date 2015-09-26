@@ -70,13 +70,8 @@
 
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
-                    class="sr-only"> Toggle navigation </span> <span class="icon-bar"> </span> <span
-                    class="icon-bar"> </span> <span class="icon-bar"> </span></button>
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-cart"><i
-                    class="fa fa-shopping-cart colorWhite"> </i> <span
-                    class="cartRespons colorWhite"> Cart ($211.00) </span></button>
-            <a class="navbar-brand " href="index.html"> <img src="{% static "images/fbu.png" %}" alt="TSHOP"> </a>
+
+            <a class="navbar-brand " href="/"> <img src="{% static "images/fbu.png" %}" alt="TSHOP"> </a>
 
             <!-- this part for mobile -->
             <div class="search-box pull-right hidden-lg hidden-md hidden-sm">
@@ -90,7 +85,7 @@
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#"> Home </a></li>
+                <li class="active"><a href="/"> Home </a></li>
                 <li class="dropdown megamenu-fullwidth"><a data-toggle="dropdown" class="dropdown-toggle" href="#"> New
                     Products <b class="caret"> </b> </a>
                     <ul class="dropdown-menu">
@@ -434,8 +429,7 @@
 ================================================== -->
 
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
-</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
 <!-- include jqueryCycle plugin -->
 <script src="{% static "js/jquery.cycle2.min.js" %}"></script>
@@ -471,5 +465,7 @@
 <script src="{% static "js/home.js" %}"></script>
 <!-- include custom script for site  -->
 <script src="{% static "js/script.js" %}"></script>
+{% block js %}
+{% endblock %}
 </body>
 </html>

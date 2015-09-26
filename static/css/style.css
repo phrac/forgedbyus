@@ -3113,7 +3113,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 }
 
 .parallax-image-1 {
-    background: url(../images/parallax/parallax.jpg);
+    background: url(../images/parallax/parallax-dark.jpg);
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -4540,7 +4540,7 @@ div.quickview {
     left: auto;
     min-width: 100px;
     max-height: 80px;
-    height: 80px !important;
+    /*height: 80px !important;*/
     opacity: 0;
     -webkit-opacity: 0;
     -ms-opacity: 0;
