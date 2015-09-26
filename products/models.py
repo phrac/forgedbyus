@@ -3,6 +3,7 @@ from localflavor.us.models import USStateField
 from django.db import models
 
 from affiliates.models import Affiliate
+from brands.models import Brand
 
 import random
 import string
@@ -29,7 +30,7 @@ class Product(models.Model):
     affiliate_id = models.ForeignKey(Affiliate)
     title = models.CharField(max_length=256)
     asin = models.CharField(max_length=10, null=True, blank=True)
-    brand = models.CharField(max_length=128, null=True)
+    brand = models.ForeignKey(Brand)
     manufacturer = models.CharField(max_length=128, null=True)
     state_of_origin = USStateField()
     usa_verified = models.BooleanField(default=False)
