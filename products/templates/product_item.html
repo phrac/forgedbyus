@@ -1,0 +1,32 @@
+<div class="item">
+    <div class="product">
+        <a class="add-fav tooltipHere" data-toggle="tooltip" data-original-title="Add to Wishlist"
+           data-placement="left">
+            <i class="glyphicon glyphicon-heart"></i>
+        </a>
+
+        <div class="image">
+            <div class="quickview">
+                <a title="Quick View" class="btn-quickview" data-target="#product-details-modal"
+                   data-toggle="modal"><strong>{{ product.title }}</strong> <br />by {{ product.brand }}</a>
+            </div>
+            <div class="promotion">
+                <span class="new-product">MADE IN</span>
+                <span class="discount"> {{ product.get_full_state|default:"USA"}}</span>
+            </div>
+            {% with product.images.all|first as image %}
+            <a href="product-details.html">
+                <img src="{{ image.image.url }}" alt="img" class="img-responsive">
+            </a>
+            {% endwith %}
+        </div>
+        <br />
+
+
+        <div class="action-control"><a href="{{ product.get_amazon_url }}" class="btn btn-primary">
+            <span class="add2cart">
+            ${{ product.current_price}} at {{ product.affiliate.name }}
+            {% if product.affiliate.name == 'Amazon' %}<i class="fa fa-amazon"> </i>{% endif %} 
+            </span> </a></div>
+    </div>
+</div>
