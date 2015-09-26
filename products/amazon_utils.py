@@ -6,6 +6,7 @@ import tempfile
 from django.core import files
 from products.models import Product, ProductImage
 from affiliates.models import Affiliate
+from brands.models import Brand
 
 import math
 
@@ -29,13 +30,13 @@ def get_asin(asin):
         price = int(math.ceil(az.price_and_currency[0]))
         title = az.title.split(',', 1)[0]
         title = title.split('(', 1)[0]
-        
+        brand, _created = Brand.objects.get_or_create(name=az.brand)
         product = Product(
                           affiliate_id=afid,
                           asin=asin,
                           short_description=az.title,
                           title=title,
-                          brand=az.brand,
+                          brand=brand,
                           manufacturer=az.manufacturer,
                           current_price=price,
                           )

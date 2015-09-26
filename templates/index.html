@@ -95,7 +95,8 @@
                                data-toggle="modal"><strong>{{ product.title }}</strong> <br />by {{ product.brand }}</a>
                         </div>
                         <div class="promotion">
-                            <span class="discount"> {{ product.state_of_origin|default:"USA"}}</span>
+                            <span class="new-product">MADE IN</span>
+                            <span class="discount"> {{ product.get_full_state|default:"USA"}}</span>
                         </div>
                         {% with product.images.all|first as image %}
                         <a href="product-details.html">
@@ -107,7 +108,7 @@
 
 
                     <div class="action-control"><a href="{{ product.get_amazon_url }}" class="btn btn-primary"> <span class="add2cart">
-                         ${{ product.current_price}} on {{ product.affiliate_id.name }} </span> </a></div>
+                        ${{ product.current_price}} at {{ product.affiliate_id.name }}  <i class="fa fa-amazon"> </i> </span> </a></div>
                 </div>
             </div>
             {% endfor %}

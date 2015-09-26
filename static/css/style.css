@@ -32,7 +32,7 @@
 /* owl.carousel */
 @import url("owl.theme.css");
 /* owl.carousel */
-@import url("font-awesome.css");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 /* Font Awesome Icon */
 @import url("animate.min.css");
 /* css3 animation */
@@ -48,7 +48,7 @@
 /* ion.checkRadio.min.js || customs checkbox and radio plugin  */
 @import url("ion.checkRadio.cloudy.css");
 /* ion.checkRadio.min.js || customs checkbox and radio plugin  */
-@import url("skin-0.css");
+@import url("skin-6.css");
 /* Template Theme color skin */
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic);
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
@@ -2944,7 +2944,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 .promotion {
     position: absolute;
     z-index: 10;
-    bottom: 20px;
+    top: 0px;
     left: 0;
     height: 24px;
     width: auto;
@@ -2984,7 +2984,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 
 .discount {
     background: #eb5e58; /* old browser */
-    border-radius: 0 4px 4px 0;
+    border-radius: 0;
     color: #fff;
     display: inline-block;
     float: left;

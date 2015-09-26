@@ -1,5 +1,6 @@
 from django.conf import settings
 from localflavor.us.models import USStateField
+from localflavor.us.us_states import US_STATES
 from django.db import models
 
 from affiliates.models import Affiliate
@@ -32,10 +33,10 @@ class Product(models.Model):
     asin = models.CharField(max_length=10, null=True, blank=True)
     brand = models.ForeignKey(Brand)
     manufacturer = models.CharField(max_length=128, null=True)
-    state_of_origin = USStateField()
+    state_of_origin = USStateField(blank=True)
     usa_verified = models.BooleanField(default=False)
     short_description = models.TextField()
-    description = models.TextField(null=True)
+    description = models.TextField(null=True, blank=True)
     current_price = models.IntegerField()
     created = models.DateTimeField(auto_now_add=True)
     clicks = models.IntegerField(default=0)
@@ -54,6 +55,16 @@ class Product(models.Model):
             return "http://amazon.com/dp/%s/tag=%s" % (self.asin, settings.AWS_ASSOCIATE_TAG)
         else:
             return None
+
+    def get_full_state(self):
+        if self.state_of_origin:
+            return [x[1] for x in US_STATES if x[0] == self.state_of_origin][0].upper()
+        else:
+            return None
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('products.views.detail', [self.product_id])
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, related_name='images')
