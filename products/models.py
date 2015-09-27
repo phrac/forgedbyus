@@ -14,7 +14,7 @@ def id_generator():
 
 class Category(models.Model):
     name = models.CharField(max_length=32, unique=True)
-    parent_category = models.ForeignKey('Category', null=True)
+    image = models.ImageField(null=True)
 
     class Meta:
         verbose_name_plural = 'Categories'

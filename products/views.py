@@ -9,6 +9,9 @@ from products import amazon_utils
 def index(request):
     pass
 
+def category_index(request):
+    return render(request, 'category_index.html')
+
 def details(request, product_id):
     product = Product.objects.get(product_id=product_id)
     return render(request, 'details.html', {'product':product})

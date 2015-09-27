@@ -7,26 +7,17 @@
 
 {% block content %}
 <div class="container main-container headerOffset">
-    <div class="row">
-        <div class="breadcrumbDiv col-lg-12">
-            <ul class="breadcrumb">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="category.html">MEN COLLECTION</a></li>
-                <li><a href="sub-category.html">TSHIRT</a></li>
-                <li class="active">Lorem ipsum dolor sit amet</li>
-            </ul>
-        </div>
-    </div>
-    <div class="row transitionfx">
+
+    <div class="row transitionfix">
 
         <!-- left column -->
         <div class="col-lg-6 col-md-6 col-sm-6">
             <!-- product Image and Zoom -->
 
-            <div class="main-image sp-wrap col-lg-12 no-padding">
-                {% with product.images.all|first as image %}
-                <img src="{{ image.image.url }}" class="img-responsive" alt="img"></a>
-                {% endwith %}
+            <div class="col-lg-12 no-padding">
+                    {% with product.images.all|first as image %}
+                    <img src="{{ image.image.url }}" alt="img" class="img-responsive">
+                    {% endwith %}
             </div>
         </div>
         <!--/ left column end -->
@@ -58,8 +49,11 @@
                 <div class="addto">
                     <a href="{{ product.get_amazon_url }}"><button href="{{ product.get_amazon_url }}" class="button btn-cart cart first"
                             title="Add to Cart" type="button">Buy on {{ product.affiliate }}
-                    </button></a>
-                    <!--<a class="link-wishlist wishlist">Add to Wishlist</a>-->
+                    </button>
+                    </a>
+                    {% if user.is_staff %}
+                    <a href="{% url 'products.views.add_product' product.product_id %}" class="link-wishlist wishlist">Edit Product</a>
+                    {% endif %}
                 </div>
 
                 <div style="clear:both"></div>
