@@ -93,6 +93,7 @@ AWS_ASSOCIATE_TAG = os.environ.get('AWS_ASSOCIATE_TAG')
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+DATABASES = {}
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 
