@@ -33,6 +33,7 @@ INSTALLED_APPS = (
 
     # third party packages
     'storages',
+    'widget_tweaks',
 
     # local apps
     'affiliates',
@@ -96,9 +97,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DATABASES = {}
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-
-# Enable Connection Pooling
-DATABASES['default']['ENGINE'] = 'django_postgrespool'
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
