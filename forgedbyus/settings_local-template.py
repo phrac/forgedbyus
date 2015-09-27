@@ -16,5 +16,5 @@ DATABASES = {
         "PORT": "",
     }
 }
-
+DATABASES = {'default': dj_database_url.config()}
 SECRET_KEY = 'YOUR SECRET KEY HERE'
