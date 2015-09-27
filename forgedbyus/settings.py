@@ -97,6 +97,9 @@ DATABASES = {}
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 
+# Enable Connection Pooling
+DATABASES['default']['ENGINE'] = 'django_postgrespool'
+
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -109,3 +112,5 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
