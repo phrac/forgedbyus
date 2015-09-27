@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
+from django.contrib.admin.views.decorators import staff_member_required
 
 from products.forms import NewAmazonProductForm, ProductForm
 from products.models import Product
@@ -16,6 +17,7 @@ def details(request, product_id):
     product = Product.objects.get(product_id=product_id)
     return render(request, 'details.html', {'product':product})
 
+@staff_member_required
 def add_asin(request):
     if request.method == 'POST':
         form = NewAmazonProductForm(request.POST)
@@ -27,7 +29,7 @@ def add_asin(request):
 
     return render(request, 'add_asin.html', {'form': form})
 
-
+@staff_member_required
 def add_product(request, product_id=None):
     product = Product.objects.get(product_id=product_id)
     if request.method == 'POST':
