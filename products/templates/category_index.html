@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 <div class="container main-container headerOffset globalPaddingBottom">
@@ -17,7 +18,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#"><img class="img-responsive" src="images/slider/single-img/1.jpg" alt="img"></a></div>
+                    <a href="#"><img class="img-responsive" src="{% static "images/slider/single-img/1.jpg" %}" alt="img"></a></div>
                 <!-- /.product-slide  -->
 
                 <div class="product-slide">
@@ -30,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#"><img class="img-responsive" src="images/slider/single-img/2.jpg" alt="img"></a></div>
+                    <a href="#"><img class="img-responsive" src="{% static "images/slider/single-img/2.jpg" %}" alt="img"></a></div>
                 <!-- /.product-slide  -->
 
                 <div class="product-slide">
@@ -43,15 +44,15 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#"><img class="img-responsive" src="images/slider/single-img/3.jpg" alt="img"></a></div>
+                    <a href="#"><img class="img-responsive" src="{% static "images/slider/single-img/3.jpg" %}" alt="img"></a></div>
                 <!-- /.product-slide  -->
             </div>
             <!--/#imageShowCase -->
 
             <div style="clear:both;"></div>
-            <a id="ps-next" class="ps-nav"> <img src="images/site/arrow-right.png" alt="N E X T"> </a> <a id="ps-prev"
+            <a id="ps-next" class="ps-nav"> <img src="{% static "images/site/arrow-right.png" %}" alt="N E X T"> </a> <a id="ps-prev"
                                                                                                           class="ps-nav">
-            <img src="images/site/arrow-left.png" alt="P R E V"></a></div>
+            <img src="{% static 'images/site/arrow-left.png' %}" alt="P R E V"></a></div>
         <!--/.image-show-case-wrapper -->
     </div>
 
@@ -81,7 +82,7 @@
                     </div>
                     <!--/.box-content-overly -->
                     <div class="img-title"> Handbags</div>
-                    <a class="img-block" href="#"> <img class="img-responsive" src="images/look3/2.jpg" alt="img"></a>
+                    <a class="img-block" href="#"> <img class="img-responsive" src="{% static 'images/look3/2.jpg' %}" alt="img"></a>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 col-xs-6 col-xs-min-12">
