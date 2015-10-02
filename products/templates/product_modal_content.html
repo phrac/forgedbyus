@@ -1,0 +1,121 @@
+{% load static %}
+<button aria-hidden="true" data-dismiss="modal" class="close" type="button"> ×</button>
+<div class="row transitionfix">
+
+    <!-- left column -->
+    <div class="col-lg-6 col-md-6 col-sm-6">
+        <!-- product Image and Zoom -->
+
+        <div class="col-lg-12 no-padding">
+                {% with product.images.all|first as image %}
+                <img src="{{ image.image.url }}" alt="img" class="img-responsive">
+                {% endwith %}
+        </div>
+    </div>
+    <!--/ left column end -->
+
+
+    <!-- right column -->
+    <div class="col-lg-6 col-md-6 col-sm-5">
+
+        <h1 class="product-title"> {{ product.title }}</h1>
+
+        <h3 class="product-code">Brand : {{ product.brand }}</h3>
+
+        <div class="rating">
+            <p>MADE IN: <strong>{{ product.get_full_state|default:"USA" }}</strong></p>
+        </div>
+        <div class="product-price">
+            <span class="price-sales"> ${{ product.current_price }}</span>
+            {% if product.msrp and product.msrp > product.current_price %}
+            <span class="price-standard">${{ product.msrp }}</span>
+            {% endif %}
+        </div>
+
+        <div class="details-description">
+            <p>{{ product.short_description }} </p>
+        </div>
+
+
+        <div class="cart-actions">
+            <div class="addto">
+                <a href="{{ product.get_amazon_url }}"><button href="{{ product.get_amazon_url }}" class="button btn-cart cart first"
+                        title="Add to Cart" type="button">Buy on {{ product.affiliate }}
+                </button>
+                </a>
+                {% if user.is_staff %}
+                <a href="{% url 'products.views.add_product' product.product_id %}" class="link-wishlist wishlist">Edit Product</a>
+                {% endif %}
+            </div>
+
+            <div style="clear:both"></div>
+            {% if product.amazon_prime %}
+            <h3 class="incaps"><i class="fa fa fa-check-circle-o color-in"></i> Amazon Prime Eligible</h3>
+            {% endif %}
+
+
+        </div>
+        <!--/.cart-actions-->
+
+        <div class="clear"></div>
+
+        <div class="product-tab w100 clearfix">
+
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#details" data-toggle="tab">Details</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="details">
+                        {% for f in product.features %}
+                        <li>{{ f }}</li>
+                        {% endfor %}
+
+                </div>
+
+            </div>
+            <!-- /.tab content -->
+
+        </div>
+        <!--/.product-tab-->
+
+        <div style="clear:both"></div>
+
+        <div class="product-share clearfix">
+            <p> SHARE </p>
+
+            <div class="socialIcon">
+                <a href="#"> <i class="fa fa-facebook"></i></a>
+                <a href="#"> <i class="fa fa-twitter"></i></a>
+                <a href="#"> <i class="fa fa-google-plus"></i></a>
+                <a href="#"> <i class="fa fa-pinterest"></i></a></div>
+        </div>
+        <!--/.product-share-->
+
+    </div>
+    <!--/ right column end -->
+
+</div>
+<!--/.row-->
+
+<div class="row recommended">
+
+    <h1> YOU MAY ALSO LIKE</h1>
+
+    <div id="productslider" class="owl-carousel owl-theme">
+        {% for p in related %}
+        {% with product=p.object %}
+        {{ product.object }}
+        {% include 'product_item.html' %}
+        {% endwith %}
+        {% endfor %}
+
+
+    </div>
+    <!--/.SimilarProductSlider-->
+</div>
+<!--/.recommended-->
+
+
+<div style="clear:both"></div>

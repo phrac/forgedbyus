@@ -17,7 +17,11 @@ def category_index(request):
 def details(request, product_id):
     product = Product.objects.get(product_id=product_id)
     mlt = SearchQuerySet().more_like_this(product)
-    return render(request, 'details.html', {'product':product, 'related':mlt})
+    if request.is_ajax():
+        template = 'product_modal_content.html'
+    else:
+        template = 'details.html'
+    return render(request, template, {'product':product, 'related':mlt})
 
 @staff_member_required
 def add_asin(request):
