@@ -2,3 +2,4 @@
 {{ object.brand }}
 {{ object.get_full_state }}
 {{ object.short_description }}
+{{ object.features }}

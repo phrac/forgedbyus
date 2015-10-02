@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.postgres.fields import ArrayField
 from localflavor.us.models import USStateField
 from localflavor.us.us_states import US_STATES
 from django.db import models
@@ -42,6 +43,10 @@ class Product(models.Model):
     detail_views = models.IntegerField(default=0)
     amazon_prime = models.BooleanField(default=False)
     featured = models.BooleanField(default=False)
+    features = ArrayField(
+        models.CharField(max_length=128, null=True, blank=True),
+        null=True, blank=True
+    )
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

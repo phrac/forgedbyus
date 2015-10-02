@@ -44,6 +44,7 @@ def get_asin(asin):
                           manufacturer=az.manufacturer,
                           current_price=price,
                           msrp=msrp,
+                          features=az.features,
                           )
 
         product.save()

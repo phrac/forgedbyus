@@ -71,25 +71,16 @@
 
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#details" data-toggle="tab">Details</a></li>
-                    <li><a href="#size" data-toggle="tab">Size</a></li>
                     <li><a href="#shipping" data-toggle="tab">Shipping</a></li>
                 </ul>
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div class="tab-pane active" id="details">Sed ut eros felis. Vestibulum rutrum imperdiet nunc a
-                        interdum. In scelerisque libero ut elit porttitor commodo. Suspendisse laoreet magna nec urna
-                        fringilla viverra.<br>
-                        100% Cotton<br></div>
-                    <div class="tab-pane" id="size"> 16" waist<br>
-                        34" inseam<br>
-                        10.5" front rise<br>
-                        8.5" knee<br>
-                        7.5" leg opening<br>
-                        <br>
-                        Measurements taken from size 30<br>
-                        Model wears size 31. Model is 6'2 <br>
-                        <br>
+                    <div class="tab-pane active" id="details">
+                            {% for f in product.features %}
+                            <li>{{ f }}</li>
+                            {% endfor %}
+
                     </div>
 
                     <div class="tab-pane" id="shipping">
@@ -151,13 +142,17 @@
 
     <div class="row recommended">
 
-        <h1> YOU MAY ALSO LIKE {{ mlt }}</h1>
+        <h1> YOU MAY ALSO LIKE</h1>
 
         <div id="SimilarProductSlider">
-            {% for m in mlt %}
-            {{ m.object }}
+            {% for p in related %}
+            {% with product=p.object %}
+            {{ product.object }}
             {% include 'product_item.html' %}
+            {% endwith %}
             {% endfor %}
+
+
         </div>
         <!--/.SimilarProductSlider-->
     </div>
