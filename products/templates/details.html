@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block js %}
-<script type="text/javascript" src="{% static "js/smoothproducts.min.js" %}"></script>
+
 {% endblock %}
 
 {% block content %}
@@ -35,7 +35,7 @@
             </div>
             <div class="product-price">
                 <span class="price-sales"> ${{ product.current_price }}</span>
-                {% if product.msrp %}
+                {% if product.msrp and product.msrp > product.current_price %}
                 <span class="price-standard">${{ product.msrp }}</span>
                 {% endif %}
             </div>
@@ -71,7 +71,6 @@
 
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#details" data-toggle="tab">Details</a></li>
-                    <li><a href="#shipping" data-toggle="tab">Shipping</a></li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -81,38 +80,6 @@
                             <li>{{ f }}</li>
                             {% endfor %}
 
-                    </div>
-
-                    <div class="tab-pane" id="shipping">
-                        <table>
-                            <colgroup>
-                                <col style="width:33%">
-                                <col style="width:33%">
-                                <col style="width:33%">
-                            </colgroup>
-                            <tbody>
-                            <tr>
-                                <td>Standard</td>
-                                <td>1-5 business days</td>
-                                <td>$7.95</td>
-                            </tr>
-                            <tr>
-                                <td>Two Day</td>
-                                <td>2 business days</td>
-                                <td>$15</td>
-                            </tr>
-                            <tr>
-                                <td>Next Day</td>
-                                <td>1 business day</td>
-                                <td>$30</td>
-                            </tr>
-                            </tbody>
-                            <tfoot>
-                            <tr>
-                                <td colspan="3">* Free on orders of $50 or more</td>
-                            </tr>
-                            </tfoot>
-                        </table>
                     </div>
 
                 </div>
@@ -144,7 +111,7 @@
 
         <h1> YOU MAY ALSO LIKE</h1>
 
-        <div id="SimilarProductSlider">
+        <div id="productslider" class="owl-carousel owl-theme">
             {% for p in related %}
             {% with product=p.object %}
             {{ product.object }}

@@ -27,7 +27,6 @@
             <a href="{{ product.get_amazon_url }}" class="btn btn-primary">
                 <span class="add2cart">
                     ${{ product.current_price}} at {{ product.affiliate.name }}
-                    {% if product.affiliate.name == 'Amazon' %}<i class="fa fa-amazon"> </i>{% endif %}
                 </span>
             </a>
         </div>

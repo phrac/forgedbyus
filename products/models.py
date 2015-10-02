@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.contrib.postgres.fields import ArrayField
 from localflavor.us.models import USStateField
 from localflavor.us.us_states import US_STATES
@@ -43,6 +44,8 @@ class Product(models.Model):
     detail_views = models.IntegerField(default=0)
     amazon_prime = models.BooleanField(default=False)
     featured = models.BooleanField(default=False)
+    curated = models.BooleanField(default=False)
+    user = models.ForeignKey(User, null=True)
     features = ArrayField(
         models.CharField(max_length=128, null=True, blank=True),
         null=True, blank=True
