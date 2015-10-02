@@ -66,7 +66,7 @@
     <div class="container">
         <div class="navbar-header">
 
-            <a class="navbar-brand " href="/"> <img src="{% static "images/fbu.png" %}" alt="TSHOP"> </a>
+            <a class="navbar-brand " href="/"> <img src="{% static "images/fbu.png" %}" alt="FORGED BY US"> </a>
 
             <!-- this part for mobile -->
             <div class="search-box pull-right hidden-lg hidden-md hidden-sm">
@@ -168,9 +168,11 @@
     <div class="search-full text-right"><a class="pull-right search-close"> <i class=" fa fa-times-circle"> </i> </a>
 
         <div class="searchInputBox pull-right">
-            <input type="search" data-searchurl="search?=" name="q" placeholder="start typing and hit enter to search"
-                   class="search-input">
-            <button class="btn-nobg search-btn" type="submit"><i class="fa fa-search"> </i></button>
+            <form action="/search" method="get">
+                <input type="search" data-searchurl="/search" name="q" placeholder="start typing and hit enter to search"
+                       class="search-input">
+                <button class="btn-nobg search-btn" type="submit"><i class="fa fa-search"> </i></button>
+            </form>
         </div>
     </div>
     <!--/.search-full-->

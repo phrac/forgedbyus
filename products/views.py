@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib.admin.views.decorators import staff_member_required
+from haystack.query import SearchQuerySet
 
 from products.forms import NewAmazonProductForm, ProductForm
 from products.models import Product
@@ -15,7 +16,8 @@ def category_index(request):
 
 def details(request, product_id):
     product = Product.objects.get(product_id=product_id)
-    return render(request, 'details.html', {'product':product})
+    mlt = SearchQuerySet().more_like_this(product)
+    return render(request, 'details.html', {'product':product, 'mlt':mlt})
 
 @staff_member_required
 def add_asin(request):

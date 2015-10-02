@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^$', 'forgedbyus.views.index'),
     url(r'^fbu/(?P<product_id>.+)/$', 'products.views.details'),
     url(r'^categories/$', 'products.views.category_index'),
+    url(r'^search/', include('haystack.urls')),
     url(r'^products/', include(product_urls)),
     url(r'^admin/', include(admin.site.urls)),
 ]
