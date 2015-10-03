@@ -1,6 +1,4 @@
 /*	Table OF Contents
- ==========================
- Carousel
  Customs Script [Modal Thumb | List View  Grid View + Add to Wishlist Click Event + Others ]
  Custom Parallax
  Custom Scrollbar
@@ -10,109 +8,11 @@
  */
 $(document).ready(function () {
 
-    /*==================================
-     Carousel
-     ====================================*/
-
-    // NEW ARRIVALS Carousel
-    $("#productslider").owlCarousel({
-        navigation: true,
-        items: 4,
-        itemsTablet: [768, 2]
-    });
-
-
-    // BRAND  carousel
-    var owl = $(".brand-carousel");
-
-    owl.owlCarousel({
-        //navigation : true, // Show next and prev buttons
-        navigation: false,
-        pagination: false,
-        items: 8,
-        itemsTablet: [768, 4],
-        itemsMobile: [400, 2]
-
-
-    });
-
-    // Custom Navigation Events
-    $("#nextBrand").click(function () {
-        owl.trigger('owl.next');
-    })
-    $("#prevBrand").click(function () {
-        owl.trigger('owl.prev');
-    })
-
-
-    // YOU MAY ALSO LIKE  carousel
-
-    $("#SimilarProductSlider").owlCarousel({
-        navigation: true
-
-    });
-
-
-    // Home Look 2 || Single product showcase
-
-    // productShowCase  carousel
-    var pshowcase = $("#productShowCase");
-
-    pshowcase.owlCarousel({
-        autoPlay: 4000,
-        stopOnHover: true,
-        navigation: false,
-        paginationSpeed: 1000,
-        goToFirstSpeed: 2000,
-        singleItem: true,
-        autoHeight: true
-
-
-    });
-
-    // Custom Navigation Events
-    $("#ps-next").click(function () {
-        pshowcase.trigger('owl.next');
-    })
-    $("#ps-prev").click(function () {
-        pshowcase.trigger('owl.prev');
-    })
-
-
-    // Home Look 3 || image Slider
-
-    // imageShowCase  carousel
-    var imageShowCase = $("#imageShowCase");
-
-    imageShowCase.owlCarousel({
-        autoPlay: 4000,
-        stopOnHover: true,
-        navigation: false,
-        pagination: false,
-        paginationSpeed: 1000,
-        goToFirstSpeed: 2000,
-        singleItem: true,
-        autoHeight: true
-
-
-    });
-
-    // Custom Navigation Events
-    $("#ps-next").click(function () {
-        imageShowCase.trigger('owl.next');
-    })
-    $("#ps-prev").click(function () {
-        imageShowCase.trigger('owl.prev');
-    })
 
 
     /*=======================================================================================
      Code for equal height - // your div will never broken if text get overflow
      ========================================================================================*/
-
-
-
-
 	  $(function () {
 		 $('.categoryProduct > .item').responsiveEqualHeightGrid()
     });

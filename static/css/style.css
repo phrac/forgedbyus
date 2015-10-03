@@ -28,10 +28,7 @@
 /* =============================================================== */
 /* IMPORT CSS
 /* =============================================================== */
-@import url("owl.carousel.css");
-/* owl.carousel */
-@import url("owl.theme.css");
-/* owl.carousel */
+
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 /* Font Awesome Icon */
 @import url("animate.min.css");

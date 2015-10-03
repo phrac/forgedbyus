@@ -107,28 +107,23 @@
     <!--/.row-->
 
     <div class="row recommended">
-
-        <h1> YOU MAY ALSO LIKE</h1>
-
-        <div id="productslider" class="owl-carousel owl-theme">
-            {% more_like_this product as related_products limit 5 %}
-            {% for p in related_products %}
-            {% with p.object as product %}
-            {% include 'product_item.html' %}
-            {% endwith %}
-            {% endfor %}
-
-
-
+        <div class="morePost row featuredPostContainer style2 globalPaddingTop ">
+            <h3 class="section-title style2 text-center"><span>You may also like</span></h3>
+            <div class="container">
+                <div class="row xsResponse">
+                    {% more_like_this product as related_products limit 8 %}
+                    {% for p in related_products %}
+                    {% with p.object as product %}
+                    {% include 'product_item.html' %}
+                    {% endwith %}
+                    {% endfor %}
+                </div>
+            </div>
         </div>
         <!--/.SimilarProductSlider-->
     </div>
     <!--/.recommended-->
-
-
     <div style="clear:both"></div>
-
-
 </div>
 <!-- /main-container -->
 {% endblock %}
