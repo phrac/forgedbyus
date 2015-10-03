@@ -114,7 +114,9 @@ STATIC_ROOT = 'staticfiles'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
-#STATIC_URL = '/static/'
-STATIC_URL = 'http://s3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME + '/'
+
+STATIC_URL = os.environ.get('STATIC_URL')
+if STATIC_URL is None:
+    STATIC_URL = 'http://s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
