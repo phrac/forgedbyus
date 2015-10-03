@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load more_like_this %}
 
 {% block js %}
 
@@ -110,12 +111,13 @@
         <h1> YOU MAY ALSO LIKE</h1>
 
         <div id="productslider" class="owl-carousel owl-theme">
-            {% for p in related %}
-            {% with product=p.object %}
-            {{ product.object }}
+            {% more_like_this product as related_products limit 5 %}
+            {% for p in related_products %}
+            {% with p.object as product %}
             {% include 'product_item.html' %}
             {% endwith %}
             {% endfor %}
+
 
 
         </div>
