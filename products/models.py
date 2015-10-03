@@ -45,6 +45,7 @@ class Product(models.Model):
     amazon_prime = models.BooleanField(default=False)
     featured = models.BooleanField(default=False)
     curated = models.BooleanField(default=False)
+    image = models.ImageField(blank=True, null=True)
     user = models.ForeignKey(User, null=True)
     features = ArrayField(
         models.CharField(max_length=128, null=True, blank=True),
@@ -76,11 +77,6 @@ class Product(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('products.views.details', [self.product_id])
-
-class ProductImage(models.Model):
-    product = models.ForeignKey(Product, related_name='images')
-    image = models.ImageField()
-    thumb = models.ImageField()
 
 class Collection(models.Model):
     name = models.CharField(max_length=32, unique=True)

@@ -4,14 +4,14 @@ import requests
 import tempfile
 
 from django.core import files
-from products.models import Product, ProductImage
+from products.models import Product
 from affiliates.models import Affiliate
 from brands.models import Brand
 
 import math
 
 
-def get_asin(asin):
+def get_asin(asin, user=None):
     """
     Checks the database for an existing ASIN. If not found, try to fetch it
     using the Amazon Product API.
@@ -45,14 +45,13 @@ def get_asin(asin):
                           current_price=price,
                           msrp=msrp,
                           features=az.features,
+                          user=user
                           )
 
         product.save()
-        image = ProductImage(product_id=product.id)
         lf, file_ext = fetch_image(az.large_image_url)
-        image_num = ProductImage.objects.filter(product_id=product.id).count() + 1
-        image.image.save("%s-%s.%s" % (product.product_id, image_num, file_ext), files.File(lf))
-        image.save()
+        product.image.save("%s.%s" % (product.product_id, file_ext), files.File(lf))
+        #product.save()
 
 
     return product

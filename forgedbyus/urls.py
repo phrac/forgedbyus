@@ -17,11 +17,13 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from products import urls as product_urls
+from products import views as product_views
+from . import views
 
 urlpatterns = [
-    url(r'^$', 'forgedbyus.views.index'),
-    url(r'^fbu/(?P<product_id>.+)/$', 'products.views.details'),
-    url(r'^categories/$', 'products.views.category_index'),
+    url(r'^$', views.index),
+    url(r'^fbu/(?P<product_id>.+)/$', product_views.details),
+    url(r'^categories/$', product_views.category_index),
     url(r'^search/', include('haystack.urls')),
     url(r'^products/', include(product_urls)),
     url(r'^admin/', include(admin.site.urls)),

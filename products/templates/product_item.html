@@ -15,11 +15,11 @@
                 <span class="new-product">MADE IN</span>
                 <span class="discount"> {{ product.get_full_state|default:"USA"}}</span>
             </div>
-            {% with product.images.all|first as image %}
             <a href="{{ product.get_absolute_url }}">
-                <img src="{{ image.image.url }}" alt="img" class="img-responsive">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="img" class="img-responsive">
+                {% endif %}
             </a>
-            {% endwith %}
         </div>
         <br />
 

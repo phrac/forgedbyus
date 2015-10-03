@@ -15,9 +15,7 @@
             <!-- product Image and Zoom -->
 
             <div class="col-lg-12 no-padding">
-                    {% with product.images.all|first as image %}
-                    <img src="{{ image.image.url }}" alt="img" class="img-responsive">
-                    {% endwith %}
+                <img src="{{ product.image.url }}" alt="img" class="img-responsive">
             </div>
         </div>
         <!--/ left column end -->

@@ -28,7 +28,7 @@ def add_asin(request):
     if request.method == 'POST':
         form = NewAmazonProductForm(request.POST)
         if form.is_valid():
-            product = amazon_utils.get_asin(form.cleaned_data['asin'].strip().upper())
+            product = amazon_utils.get_asin(form.cleaned_data['asin'].strip().upper(), request.user)
             return redirect('products.views.add_product', product_id=product.product_id)
     else:
         form = NewAmazonProductForm()
