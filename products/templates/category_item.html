@@ -1,0 +1,27 @@
+{% load static %}
+<div class="col-md-4 col-sm-6 col-xs-6 col-xs-min-12">
+    <div class="inner">
+        <div class="box-content-overly box-content-overly-white">
+            <div class="box-text-table">
+                <div class="box-text-cell ">
+                    <div class="box-text-cell-inner dark">
+                        <h1 class="uppercase">{{ c.name }}</h1>
+
+                        <p>Veggies es bonus vobis, proinde vos postulo essum magis
+                            kohlrabi welsh onion daikon amaranth.</p>
+                        <hr class="submini">
+                        <a class="btn btn-inverse"> SHOP NOW</a></div>
+                </div>
+            </div>
+        </div>
+        <!--/.box-content-overly -->
+        <div class="img-title"> {{ c.name }}</div>
+        <a class="img-block" href="#">
+            {% if c.image %}
+            <img class="img-responsive" src="{{ c.image.url }}" alt="img">
+            {% else %}
+            <img class="img-responsive" src="{% static 'images/look3/2.jpg' %}" alt="img">
+            {% endif %}
+        </a>
+    </div>
+</div>

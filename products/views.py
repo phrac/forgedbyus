@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.admin.views.decorators import staff_member_required
 
 from products.forms import NewAmazonProductForm, ProductForm
-from products.models import Product
+from products.models import Product, Category
 from products import amazon_utils
 
 
@@ -11,7 +11,8 @@ def index(request):
     pass
 
 def category_index(request):
-    return render(request, 'category_index.html')
+    categories = Category.objects.all()
+    return render(request, 'category_index.html', {'categories':categories})
 
 def details(request, product_id):
     product = Product.objects.get(product_id=product_id)
