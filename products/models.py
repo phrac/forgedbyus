@@ -46,6 +46,7 @@ class Product(models.Model):
     featured = models.BooleanField(default=False)
     curated = models.BooleanField(default=False)
     image = models.ImageField(blank=True, null=True)
+    sales_rank = models.IntegerField(null=True, blank=True)
     user = models.ForeignKey(User, null=True)
     features = ArrayField(
         models.CharField(max_length=128, null=True, blank=True),

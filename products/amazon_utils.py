@@ -45,7 +45,8 @@ def get_asin(asin, user=None):
                           current_price=price,
                           msrp=msrp,
                           features=az.features,
-                          user=user
+                          user=user,
+                          sales_rank=az.sales_rank,
                           )
 
         product.save()
