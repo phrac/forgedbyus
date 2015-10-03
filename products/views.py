@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib.admin.views.decorators import staff_member_required
-from haystack.query import SearchQuerySet
 
 from products.forms import NewAmazonProductForm, ProductForm
 from products.models import Product

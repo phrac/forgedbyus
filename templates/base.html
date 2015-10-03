@@ -149,10 +149,21 @@
             <!--- this part will be hidden for mobile version -->
             <div class="nav navbar-nav navbar-right hidden-xs">
 
-                <div class="search-box">
-                    <div class="input-group">
-                        <button class="btn btn-nobg getFullSearch" type="button"><i class="fa fa-search"> </i></button>
-                    </div>
+                <div class="search-box static-search pull-right">
+
+                    <form id="search-form" method="GET" action="/search" role="search" class="navbar-form">
+                        <div class="input-group">
+                            <input type="text" style="padding:6px 6px;" name="q" placeholder="Find Products..."
+                                   class="form-control">
+
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+
                     <!-- /input-group -->
 
                 </div>
@@ -165,17 +176,7 @@
     </div>
     <!--/.container -->
 
-    <div class="search-full text-right"><a class="pull-right search-close"> <i class=" fa fa-times-circle"> </i> </a>
 
-        <div class="searchInputBox pull-right">
-            <form action="/search" method="get">
-                <input type="search" data-searchurl="/search" name="q" placeholder="start typing and hit enter to search"
-                       class="search-input">
-                <button class="btn-nobg search-btn" type="submit"><i class="fa fa-search"> </i></button>
-            </form>
-        </div>
-    </div>
-    <!--/.search-full-->
 
 </div>
 <!-- /.Fixed navbar  -->
@@ -186,7 +187,7 @@
 
 <!--main-container-->
 
-<div class="parallax-section parallax-image-2">
+<!--<div class="parallax-section parallax-image-2">
     <div class="w100 parallax-section-overley">
         <div class="container">
             <div class="row">
