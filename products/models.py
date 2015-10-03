@@ -20,6 +20,7 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = 'Categories'
+        ordering = ['name']
 
     def __unicode__(self):
         return self.name
@@ -31,6 +32,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     product_id = models.CharField(db_index=True, max_length=13, unique=True, blank=True)
+    category = models.ForeignKey(Category, null=True, blank=True)
     affiliate = models.ForeignKey(Affiliate)
     title = models.CharField(max_length=256)
     asin = models.CharField(max_length=10, null=True, blank=True)
