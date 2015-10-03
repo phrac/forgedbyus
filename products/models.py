@@ -16,7 +16,7 @@ def id_generator():
 
 class Category(models.Model):
     name = models.CharField(max_length=32, unique=True)
-    image = models.ImageField(null=True)
+    image = models.ImageField(null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Categories'
@@ -24,6 +24,7 @@ class Category(models.Model):
     def __unicode__(self):
         return self.name
 
+    @models.permalink
     def get_absolute_url(self):
         pass
 
