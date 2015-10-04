@@ -54,7 +54,7 @@ def get_asin(asin, user=None):
         product.save()
         lf, file_ext = fetch_image(az.large_image_url)
         large_image = fit_image(lf, (699, 875))
-        thumb = fit_image(lf, (285, 380), margin=100)
+        thumb = fit_image(lf, (285, 340), margin=100)
         product.image.save("%s-large.%s" % (product.product_id, file_ext), files.File(large_image))
         product.thumb.save("%s-small.%s" % (product.product_id, file_ext), files.File(thumb))
 
