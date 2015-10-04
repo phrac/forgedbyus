@@ -72,6 +72,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Slug generatoin settings
+SLUG_MAX_LENGTH = 50
+
 # Haystack search settings
 es = urlparse(os.environ.get('SEARCHBOX_URL') or 'http://127.0.0.1:9200/')
 port = es.port or 80

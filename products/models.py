@@ -8,26 +8,35 @@ from django.db import models
 from affiliates.models import Affiliate
 from brands.models import Brand
 
-import random
-import string
+from slugify import slugify
 
 def id_generator():
+    import random
+    import string
     return ''.join(random.choice(string.ascii_uppercase + string.digits) for x in range(10))
 
 class Category(models.Model):
     name = models.CharField(max_length=32, unique=True)
     image = models.ImageField(null=True, blank=True)
+    description = models.CharField(max_length=256, null=True, blank=True)
+    slug = models.SlugField(null=True, blank=True)
 
     class Meta:
         verbose_name_plural = 'Categories'
         ordering = ['name']
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name, settings.SLUG_MAX_LENGTH)
+        super(Category, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.name
 
     @models.permalink
     def get_absolute_url(self):
-        pass
+        return 'category', (), {'slug': self.slug}
+
 
 
 class Product(models.Model):
@@ -56,12 +65,15 @@ class Product(models.Model):
         models.CharField(max_length=128, null=True, blank=True),
         null=True, blank=True
     )
+    slug = models.SlugField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         if not self.product_id:
             self.product_id = id_generator()
+        if not self.slug:
+            self.slug = slugify(self.title, settings.SLUG_MAX_LENGTH)
         super(Product, self).save(*args, **kwargs)
 
     def __unicode__(self):
@@ -81,7 +93,7 @@ class Product(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('products.views.details', [self.product_id])
+        return 'product', (), {'product_id':self.product_id, 'slug': self.slug}
 
 class Collection(models.Model):
     name = models.CharField(max_length=32, unique=True)

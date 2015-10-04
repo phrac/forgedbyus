@@ -14,7 +14,12 @@ def category_index(request):
     categories = Category.objects.all()
     return render(request, 'category_index.html', {'categories':categories})
 
-def details(request, product_id):
+def category(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    products = Product.objects.filter(category=category)
+    return render(request, 'category.html', {'category':category, 'products':products})
+
+def details(request, product_id, slug):
     product = Product.objects.get(product_id=product_id)
     if request.is_ajax():
         template = 'product_modal_content.html'

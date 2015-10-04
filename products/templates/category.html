@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container main-container headerOffset globalPaddingBottom">
+        <div class="container main-container">
+        <!-- Main component call to action -->
+            <div class="morePost row featuredPostContainer style2 globalPaddingTop ">
+                <h3 class="section-title style2 text-center"><span>{{ category.name }}</span></h3>
+
+                <div class="container">
+                    <div class="row xsResponse">
+                        {% for product in products %}
+                        {% include 'product_item.html' %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        <!--/.featuredPostContainer-->
+        </div>
+</div>
+{% endblock %}

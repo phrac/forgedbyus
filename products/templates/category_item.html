@@ -7,16 +7,15 @@
                     <div class="box-text-cell-inner dark">
                         <h1 class="uppercase">{{ c.name }}</h1>
 
-                        <p>Veggies es bonus vobis, proinde vos postulo essum magis
-                            kohlrabi welsh onion daikon amaranth.</p>
+                        <p>{{ c.description }}</p>
                         <hr class="submini">
-                        <a class="btn btn-inverse"> SHOP NOW</a></div>
+                        <a href="{{ c.get_absolute_url }}" class="btn btn-inverse"> SHOP NOW</a></div>
                 </div>
             </div>
         </div>
         <!--/.box-content-overly -->
         <div class="img-title"> {{ c.name }}</div>
-        <a class="img-block" href="#">
+        <a class="img-block" href="{{ c.get_absolute_url }}">
             {% if c.image %}
             <img class="img-responsive" src="{{ c.image.url }}" alt="img">
             {% else %}
