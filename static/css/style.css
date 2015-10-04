@@ -756,6 +756,7 @@ legend {
     line-height: 20px;
 }
 
+
 /* =============================================================== */
 /* CUSTOMIZE NAVBAR
 /* =============================================================== */
@@ -2923,6 +2924,10 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
     -o-transition: all 0.5s ease 0s;
     max-height: 240px;
     margin: 0 auto;
+}
+
+.product .image a img {
+    margin: 20px 0 20px;
 }
 
 .product:hover .image a img {

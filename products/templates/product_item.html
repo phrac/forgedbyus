@@ -16,8 +16,8 @@
                 <span class="discount"> {{ product.get_full_state|default:"USA"}}</span>
             </div>
             <a href="{{ product.get_absolute_url }}">
-                {% if product.image %}
-                <img src="{{ product.image.url }}" alt="img" class="img-responsive">
+                {% if product.thumb %}
+                <img src="{{ product.thumb.url }}" alt="img" class="img-product">
                 {% endif %}
             </a>
         </div>

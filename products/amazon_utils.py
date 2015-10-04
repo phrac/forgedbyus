@@ -7,6 +7,7 @@ from django.core import files
 from products.models import Product
 from affiliates.models import Affiliate
 from brands.models import Brand
+from PIL import Image, ImageChops
 
 import math
 
@@ -35,6 +36,7 @@ def get_asin(asin, user=None):
         title = az.title.split(',', 1)[0]
         title = title.split('(', 1)[0]
         brand, _created = Brand.objects.get_or_create(name=az.brand)
+        parsed_features = [s for s in az.features if len(s) < 127]
         product = Product(
                           affiliate=afid,
                           asin=asin,
@@ -44,15 +46,17 @@ def get_asin(asin, user=None):
                           manufacturer=az.manufacturer,
                           current_price=price,
                           msrp=msrp,
-                          features=az.features,
+                          features=parsed_features,
                           user=user,
                           sales_rank=az.sales_rank,
                           )
 
         product.save()
         lf, file_ext = fetch_image(az.large_image_url)
-        product.image.save("%s.%s" % (product.product_id, file_ext), files.File(lf))
-        #product.save()
+        large_image = fit_image(lf, (699, 875))
+        thumb = fit_image(lf, (285, 380), margin=100)
+        product.image.save("%s-large.%s" % (product.product_id, file_ext), files.File(large_image))
+        product.thumb.save("%s-small.%s" % (product.product_id, file_ext), files.File(thumb))
 
 
     return product
@@ -78,9 +82,29 @@ def fetch_image(url):
         # Write image block to temporary file
         lf.write(block)
     return lf, file_ext
-    # Create the model you want to save the image to
-    #image = Image()
 
-    # Save the temporary image to the model#
-    # This saves the model so be sure that is it valid
-    #image.image.save(file_name, files.File(lf))
+def fit_image(img, new_size, margin=0):
+    import StringIO
+    fit_io = StringIO.StringIO()
+
+    image = Image.open(img)
+
+    bg = Image.new(image.mode, image.size, image.getpixel((0, 0)))
+    diff = ImageChops.difference(image, bg)
+    bbox = diff.getbbox()
+    image.crop(bbox)
+
+
+    image.thumbnail(new_size, Image.ANTIALIAS)
+    old_size = image.size
+    if old_size[1] > new_size[1]-margin:
+        tmp_size = (old_size[0], old_size[1] - margin)
+        image.thumbnail(tmp_size, Image.ANTIALIAS)
+    # scale image and paste to correct size
+    old_size = image.size
+    scaled = Image.new("RGB", new_size, "white")
+    scaled.paste(image, ((new_size[0]-old_size[0])/2,
+                      (new_size[1]-old_size[1])/2))
+
+    scaled.save(fit_io, "JPEG")
+    return fit_io
