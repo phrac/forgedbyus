@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from products.forms import NewAmazonProductForm, ProductForm
 from products.models import Product, Category
 from products import amazon_utils
+from slugify import slugify
 
 
 def index(request):
@@ -22,13 +23,14 @@ def category(request, slug):
 
 def details(request, product_id, slug=None):
     product = get_object_or_404(Product, product_id=product_id)
+    title = slugify(product.title, max_length=50, separator=' ', capitalize=True)
     if slug is None and product.slug is not None:
         return HttpResponsePermanentRedirect(reverse('products.views.details', args=[product.product_id, product.slug]))
     if request.is_ajax():
         template = 'product_modal_content.html'
     else:
         template = 'details.html'
-    return render(request, template, {'product':product})
+    return render(request, template, {'product':product, 'title':title})
 
 @staff_member_required
 def add_asin(request):

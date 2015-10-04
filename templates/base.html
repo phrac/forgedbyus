@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static "images/ico/apple-touch-icon-72-precomposed.png" %}">
     <link rel="apple-touch-icon-precomposed" href="{% static "images/ico/apple-touch-icon-57-precomposed.png" %}">
     <link rel="shortcut icon" href="{% static "ico/favicon.ico" %}">
-    <title>Made in the USA - forged by us</title>
+    <title>{% block title %}Made in the USA{% endblock %} - forged by us</title>
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
