@@ -119,5 +119,7 @@ STATICFILES_DIRS = (
 )
 
 STATIC_URL = os.environ.get('STATIC_URL')
+if STATIC_URL is None:
+    STATIC_URL = 'http://s3.amazonaws.com/%s' % AWS_STORAGE_BUCKET_NAME + '/'
 
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
