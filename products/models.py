@@ -8,7 +8,7 @@ from django.db import models
 from affiliates.models import Affiliate
 from brands.models import Brand
 
-from slugify import slugify
+from slugify import slugify as awesome_slugify
 
 def id_generator():
     import random
@@ -27,7 +27,7 @@ class Category(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.name, settings.SLUG_MAX_LENGTH)
+            self.slug = awesome_slugify(self.name, max_length=settings.SLUG_MAX_LENGTH, to_lower=True)
         super(Category, self).save(*args, **kwargs)
 
     def __unicode__(self):
@@ -73,7 +73,7 @@ class Product(models.Model):
         if not self.product_id:
             self.product_id = id_generator()
         if not self.slug:
-            self.slug = slugify(self.title, settings.SLUG_MAX_LENGTH)
+            self.slug = awesome_slugify(self.title, max_length=settings.SLUG_MAX_LENGTH, to_lower=True)
         super(Product, self).save(*args, **kwargs)
 
     def __unicode__(self):

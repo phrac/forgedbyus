@@ -23,6 +23,7 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index),
     url(r'^fbu/(?P<product_id>.+)/(?P<slug>[-\w]+)/$', product_views.details, name='product'),
+    url(r'^fbu/(?P<product_id>.+)/$', product_views.details, name='product'),
     url(r'^search/', include('haystack.urls')),
     url(r'^products/', include(product_urls)),
     url(r'^admin/', include(admin.site.urls)),

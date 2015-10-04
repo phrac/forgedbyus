@@ -19,7 +19,7 @@ def category(request, slug):
     products = Product.objects.filter(category=category)
     return render(request, 'category.html', {'category':category, 'products':products})
 
-def details(request, product_id, slug):
+def details(request, product_id, slug=None):
     product = Product.objects.get(product_id=product_id)
     if request.is_ajax():
         template = 'product_modal_content.html'
