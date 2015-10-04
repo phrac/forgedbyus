@@ -97,7 +97,7 @@ def fit_image(img, new_size, margin=0):
 
     image.thumbnail(new_size, Image.ANTIALIAS)
     old_size = image.size
-    if old_size[1] > new_size[1]-margin:
+    if old_size[1] == new_size[1]:
         tmp_size = (old_size[0], old_size[1] - margin)
         image.thumbnail(tmp_size, Image.ANTIALIAS)
     # scale image and paste to correct size
