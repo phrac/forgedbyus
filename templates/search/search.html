@@ -3,30 +3,25 @@
 {% block content %}
 <div class="container main-container headerOffset globalPaddingBottom">
     {% if query %}
-        <div class="container main-container">
-        <!-- Main component call to action -->
-            <div class="morePost row featuredPostContainer style2 globalPaddingTop ">
-                <h3 class="section-title style2 text-center"><span>Products matching "<em>{{ query }}</em>"</span></h3>
+        <h3 class="section-title style2 text-center"><span>Products matching "<em>{{ query }}</em>"</span></h3>
 
-                <div class="container">
-                    <div class="row xsResponse">
-                        {% for result in page.object_list %}
-                        {% with result.object as product %}
-                        {% include 'product_item.html' %}
-                        {% endwith %}
-                        {% endfor %}
-                    </div>
-                </div>
-                {% if page.has_previous or page.has_next %}
-                    <div>
-                        {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
-                        |
-                        {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
-                    </div>
-                {% endif %}
+        <div class="container">
+            <div class="row xsResponse">
+                {% for result in page.object_list %}
+                {% with result.object as product %}
+                {% include 'product_item.html' %}
+                {% endwith %}
+                {% endfor %}
             </div>
-        <!--/.featuredPostContainer-->
         </div>
+        {% if page.has_previous or page.has_next %}
+            <div>
+                {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+                |
+                {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+            </div>
+        {% endif %}
+        <!--/.featuredPostContainer-->
     {% else %}
         {# Show some example queries to run, maybe query syntax, something else? #}
     {% endif %}
