@@ -516,6 +516,10 @@ input[type="text"], input[type="password"], input[type="email"] {
     background: none;
 }
 
+.btn-sharp {
+  border-radius:0;
+}
+
 .btn-default {
     background-color: #BDC3C7;
     color: #FFFFFF;
