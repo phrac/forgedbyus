@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect
 from django.contrib.admin.views.decorators import staff_member_required
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect, HttpResponsePermanentRedirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from products.forms import NewAmazonProductForm, ProductForm
 from products.models import Product, Category
@@ -20,7 +21,9 @@ def category(request, slug):
     return render(request, 'category.html', {'category':category, 'products':products})
 
 def details(request, product_id, slug=None):
-    product = Product.objects.get(product_id=product_id)
+    product = get_object_or_404(Product, product_id=product_id)
+    if slug is None and product.slug is not None:
+        return HttpResponsePermanentRedirect(reverse('products.views.details', args=[product.product_id, product.slug]))
     if request.is_ajax():
         template = 'product_modal_content.html'
     else:
