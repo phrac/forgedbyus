@@ -12,7 +12,7 @@ import math
 @task
 def update_price():
     print 'updating pricing'
-    time_threshold = datetime.now() - timedelta(minutes=settings.UPDATE_PRICE_THRESHOLD)
+    time_threshold = timezone.now() - timedelta(minutes=settings.UPDATE_PRICE_THRESHOLD)
     affiliate = Affiliate.objects.get(name='Amazon')
     products = Product.objects.filter(price_updated__lt=time_threshold, affiliate=affiliate)[:10]
     if len(products) > 0:
