@@ -55,7 +55,7 @@ class Product(models.Model):
     description = models.TextField(null=True, blank=True)
     msrp = models.IntegerField(null=True, blank=True)
     current_price = models.IntegerField()
-    price_updated = models.DateTimeField()
+    price_updated = models.DateTimeField(auto_now_add=True)
     detail_views = models.IntegerField(default=0)
     amazon_prime = models.BooleanField(default=False)
     featured = models.BooleanField(default=False)
