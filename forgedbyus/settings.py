@@ -102,7 +102,7 @@ AWS_ASSOCIATE_TAG = os.environ.get('AWS_ASSOCIATE_TAG')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # how ofter to update the prices from amazon in minutes
-UPDATE_PRICE_THRESHOLD = 60
+UPDATE_PRICE_THRESHOLD = 5
 
 #Celery/cloudampq settings
 BROKER_POOL_LIMIT = 3
