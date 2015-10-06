@@ -10,6 +10,8 @@ from brands.models import Brand
 
 from slugify import slugify as awesome_slugify
 
+import math
+
 def id_generator():
     import random
     import string
@@ -44,7 +46,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, null=True, blank=True)
     affiliate = models.ForeignKey(Affiliate)
     title = models.CharField(max_length=256)
-    asin = models.CharField(max_length=10, null=True, blank=True)
+    asin = models.CharField(db_index=True, max_length=10, null=True, blank=True)
     brand = models.ForeignKey(Brand)
     manufacturer = models.CharField(max_length=128, null=True, blank=True)
     state_of_origin = USStateField(blank=True)
@@ -53,6 +55,7 @@ class Product(models.Model):
     description = models.TextField(null=True, blank=True)
     msrp = models.IntegerField(null=True, blank=True)
     current_price = models.IntegerField()
+    price_updated = models.DateTimeField()
     detail_views = models.IntegerField(default=0)
     amazon_prime = models.BooleanField(default=False)
     featured = models.BooleanField(default=False)

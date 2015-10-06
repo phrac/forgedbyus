@@ -6,6 +6,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', ''))
+#DEBUG = True
 
 # Application definition
 
@@ -18,6 +19,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # third party packages
+    'djcelery',
     'haystack',
     'storages',
     'widget_tweaks',
@@ -98,6 +100,18 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 AWS_ASSOCIATE_TAG = os.environ.get('AWS_ASSOCIATE_TAG')
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
+
+# how ofter to update the prices from amazon in minutes
+UPDATE_PRICE_THRESHOLD = 60
+
+#Celery/cloudampq settings
+BROKER_POOL_LIMIT = 3
+import djcelery
+djcelery.setup_loader()
+BROKER_URL = os.environ.get('CLOUDAMQP_URL')
+if BROKER_URL is None:
+    BROKER_URL = os.environ.get('BROKER_URL')
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 
 DATABASES = {}
 import dj_database_url

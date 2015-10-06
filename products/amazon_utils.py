@@ -11,7 +11,6 @@ from PIL import Image, ImageChops
 
 import math
 
-
 def get_asin(asin, user=None):
     """
     Checks the database for an existing ASIN. If not found, try to fetch it
