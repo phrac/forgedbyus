@@ -5,6 +5,7 @@ from affiliates.models import Affiliate
 
 from datetime import datetime, timedelta
 from django.conf import settings
+from django.utils import timezone
 
 import math
 
@@ -22,10 +23,8 @@ def update_price():
                        settings.AWS_ASSOCIATE_TAG)
     az = amazon.lookup(ItemId=asins_string)
     for p in az:
-        print 'processing %s' % p.asin
         if p.price_and_currency[0] is not None:
-            print 'not null'
             product = Product.objects.get(asin=p.asin)
             product.current_price = int(math.ceil(p.price_and_currency[0]))
-            product.price_updated = datetime.now()
+            product.price_updated = timezone.now()
             product.save()
