@@ -105,6 +105,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 UPDATE_PRICE_THRESHOLD = 5
 
 #Celery/cloudampq settings
+CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
 BROKER_POOL_LIMIT = 3
 import djcelery
 djcelery.setup_loader()
