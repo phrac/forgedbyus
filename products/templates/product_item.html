@@ -24,8 +24,8 @@
         <br />
 
         <div class="action-control">
-            <a target="_blank" href="{{ product.get_amazon_url }}" class="btn btn-primary btn-sharp">
-                <span class="add2cart">
+            <a target="_blank" href="{{ product.get_amazon_url }}" class="btn btn-primary btn-sharp" data-togle="tooltip" title="price as of {{ product.price_updated }}">
+                <span class="add2cart" tooltip="test">
                     ${{ product.current_price}} at {{ product.affiliate.name }}
                 </span>
             </a>
