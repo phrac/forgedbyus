@@ -11,9 +11,9 @@ urlpatterns = [
     url(r'^fbu/(?P<product_id>[A-Z0-9]{10})/(?P<slug>[-\w]+)/$', product_views.details, name='product'),
     url(r'^fbu/(?P<product_id>[A-Z0-9]{10})/$', product_views.details, name='product'),
 
-    url(r'^privacy/', TemplateView.as_view(template_name="privacy.html"), name='privacy'),
-    url(r'^disclaimer/', TemplateView.as_view(template_name="disclaimer.html"), name='disclaimer'),
-
+    url(r'^privacy/$', TemplateView.as_view(template_name="privacy.html"), name='privacy'),
+    url(r'^disclaimer/$', TemplateView.as_view(template_name="disclaimer.html"), name='disclaimer'),
+    url(r'^about/$', TemplateView.as_view(template_name="about.html"), name='about'),
 
     url(r'^search/', include('haystack.urls')),
     url(r'^products/', include(product_urls)),
