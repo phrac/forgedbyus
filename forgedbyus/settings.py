@@ -105,13 +105,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 UPDATE_PRICE_THRESHOLD = 60
 
 #Celery/cloudampq settings
-BROKER_POOL_LIMIT = 3
+#BROKER_POOL_LIMIT = 3
 import djcelery
 djcelery.setup_loader()
-BROKER_URL = os.environ.get('CLOUDAMQP_URL')
-if BROKER_URL is None:
-    BROKER_URL = os.environ.get('BROKER_URL')
 CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+
+BROKER_URL = os.environ.get('REDIS_URL')
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
 
 DATABASES = {}
 import dj_database_url
