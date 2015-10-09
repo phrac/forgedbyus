@@ -3,7 +3,16 @@
 {% load more_like_this %}
 
 {% block js %}
-<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+<script>
+function pinIt()
+{
+  var e = document.createElement('script');
+  e.setAttribute('type','text/javascript');
+  e.setAttribute('charset','UTF-8');
+  e.setAttribute('src','https://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);
+  document.body.appendChild(e);
+}
+</script>
 {% endblock %}
 
 {% block title %}{{ title }}{% endblock %}
@@ -18,7 +27,7 @@
             <!-- product Image and Zoom -->
 
             <div class="col-lg-12 no-padding">
-                <img src="{{ product.image.url }}" alt="img" class="img-responsive">
+                <img src="{{ product.image.url }}" alt="{{ product.title }} by {{ product.brand }}" class="img-responsive">
             </div>
         </div>
         <!--/ left column end -->
@@ -98,8 +107,8 @@
                     <a href="#"> <i class="fa fa-facebook"></i></a>
                     <a href="#"> <i class="fa fa-twitter"></i></a>
                     <a href="#"> <i class="fa fa-google-plus"></i></a>
-                    <a data-pin-do="buttonBookmark" null href="//www.pinterest.com/pin/create/button/"><i class="fa fa-pinterest"></i></a>
-                    <a href="#"> <i class="fa fa-pinterest"></i></a></div>
+                    <a href="javascript:pinIt();"><i class="fa fa-pinterest"></i></a>
+                </div>
             </div>
             <!--/.product-share-->
 
