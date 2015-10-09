@@ -1,4 +1,5 @@
 {% load static from staticfiles %}
+{% load product_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,7 +164,7 @@
                     <ul>
                         <li class="supportLi">
                             <h4> We find the best products on the web that are <strong>Made In America.</strong>
-                                All of our products are hand picked and hand verified.
+                                All of our products are hand picked and hand verified. Featuring <strong>{% product_count %}</strong> products.
                             </h4>
                             <br />
                             <h5>Suggest a USA made product</h5>

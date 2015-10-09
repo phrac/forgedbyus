@@ -27,6 +27,7 @@ INSTALLED_APPS = (
     # local apps
     'affiliates',
     'brands',
+    'forgedbyus',
     'products',
 )
 
