@@ -101,6 +101,8 @@ AWS_ASSOCIATE_TAG = os.environ.get('AWS_ASSOCIATE_TAG')
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+MAILCHIMP_API_KEY = os.environ.get('MAILCHIMP_API_KEY', None)
+
 # how ofter to update the prices from amazon in minutes
 UPDATE_PRICE_THRESHOLD = 60
 
