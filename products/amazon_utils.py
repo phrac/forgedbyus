@@ -10,6 +10,9 @@ from brands.models import Brand
 from PIL import Image, ImageChops
 
 import math
+import re, string
+
+from slugify import slugify as awesome_slugify
 
 def get_asin(asin, user=None):
     """
@@ -34,6 +37,12 @@ def get_asin(asin, user=None):
             msrp = None
         title = az.title.split(',', 1)[0]
         title = title.split('(', 1)[0]
+        slug = awesome_slugify(title, max_length=settings.SLUG_MAX_LENGTH, to_lower=True)
+        title = title.replace(az.brand, '')
+        regex = re.compile('[^a-zA-Z ]')
+        regex.sub('', title)
+        title.lstrip()
+        title.strip()
         brand, _created = Brand.objects.get_or_create(name=az.brand)
         parsed_features = [s for s in az.features if len(s) < 127]
         product = Product(
@@ -48,6 +57,7 @@ def get_asin(asin, user=None):
                           features=parsed_features,
                           user=user,
                           sales_rank=az.sales_rank,
+                          slug=slug,
                           )
 
         product.save()
