@@ -17,7 +17,7 @@
             </div>
             <a href="{{ product.get_absolute_url }}">
                 {% if product.thumb %}
-                <img src="{{ product.thumb.url }}" alt="img" class="img-product">
+                <img src="{{ product.thumb.url }}" alt="{{ product.title }} by {{ product.brand }}" class="img-product">
                 {% endif %}
             </a>
         </div>
