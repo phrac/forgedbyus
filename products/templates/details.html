@@ -3,7 +3,7 @@
 {% load more_like_this %}
 
 {% block head %}
-<meta property="og:url"           content="{{ request.build_absolute_uri }}{{ product.get_absolute_url }}" />
+<meta property="og:url"           content="{{ product.get_absolute_url }}" />
 <meta property="og:type"          content="website" />
 <meta property="og:title"         content="{{ product.title }} Made in {{ product.get_full_state }} - Forged By Us" />
 <meta property="og:description"   content="{{ product.short_description }}" />
