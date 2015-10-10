@@ -5,7 +5,7 @@
 {% block head %}
 <meta property="og:url"           content="{{ request.build_absolute_uri }}{{ product.get_absolute_url }}" />
 <meta property="og:type"          content="website" />
-<meta property="og:title"         content="{{ product.title }} - Forged By Us" />
+<meta property="og:title"         content="{{ product.title }} Made in {{ product.get_full_state }} - Forged By Us" />
 <meta property="og:description"   content="{{ product.short_description }}" />
 <meta property="og:image"         content="{{ product.image.url }}" />
 {% endblock %}
@@ -23,7 +23,7 @@ function pinIt()
 </script>
 {% endblock %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}{{ title }} Made in {{ product.get_full_state }}{% endblock %}
 
 {% block content %}
 <div class="container main-container headerOffset">
