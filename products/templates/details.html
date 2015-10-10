@@ -26,7 +26,7 @@ function pinIt()
 {% block title %}{{ title }} Made in {{ product.get_full_state }}{% endblock %}
 
 {% block content %}
-<div class="container main-container headerOffset">
+<div class="container main-container headerOffset" vocab="http://schema.org/" typeof="Product">
 
     <div class="row transitionfix">
 
@@ -35,7 +35,7 @@ function pinIt()
             <!-- product Image and Zoom -->
 
             <div class="col-lg-12 no-padding">
-                <img src="{{ product.image.url }}" alt="{{ product.title }} by {{ product.brand }}. Made in {{ product.get_full_state|default:"USA" }}." class="img-responsive">
+                <img property="image" src="{{ product.image.url }}" alt="{{ product.title }} by {{ product.brand }}. Made in {{ product.get_full_state|default:"USA" }}." class="img-responsive">
             </div>
         </div>
         <!--/ left column end -->
@@ -44,9 +44,9 @@ function pinIt()
         <!-- right column -->
         <div class="col-lg-6 col-md-6 col-sm-5">
 
-            <h1 class="product-title"> {{ product.title }}</h1>
+            <h1 property="name" class="product-title"> {{ product.title }}</h1>
 
-            <h3 class="product-code">Brand : {{ product.brand }}</h3>
+            <h3 property="brand" class="product-code">Brand : {{ product.brand }}</h3>
 
             <div class="rating">
                 <p>MADE IN: <strong>{{ product.get_full_state|default:"USA" }}</strong></p>
@@ -59,7 +59,7 @@ function pinIt()
             </div>
 
             <div class="details-description">
-                <p>{{ product.short_description }} </p>
+                <p property="description">{{ product.short_description }} </p>
             </div>
 
 
