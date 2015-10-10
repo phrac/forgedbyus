@@ -26,6 +26,8 @@ def details(request, product_id, slug=None):
     title = slugify(product.title, max_length=50, separator=' ', capitalize=True)
     if slug is None and product.slug is not None:
         return HttpResponsePermanentRedirect(reverse('products.views.details', args=[product.product_id, product.slug]))
+    if slug != product.slug:
+        return HttpResponsePermanentRedirect(reverse('products.views.details', args=[product.product_id, product.slug]))
     if request.is_ajax():
         template = 'product_modal_content.html'
     else:
