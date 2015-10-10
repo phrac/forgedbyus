@@ -6,7 +6,7 @@
 <meta property="og:url"           content="{{ request.build_absolute_uri }}" />
 <meta property="og:type"          content="website" />
 <meta property="og:title"         content="{{ product.title }} Made in {{ product.get_full_state|default:"USA" }} - Forged By Us" />
-<meta property="og:description"   content="{{ product.short_description }} Made in {{ product.get_full_state|default:"USA" }}" />
+<meta property="og:description"   content="{{ product.short_description }}. Made in {{ product.get_full_state|default:"USA" }}" />
 <meta property="og:image"         content="{{ product.image.url }}" />
 {% endblock %}
 
