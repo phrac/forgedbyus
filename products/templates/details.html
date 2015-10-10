@@ -5,7 +5,7 @@
 {% block head %}
 <meta property="og:url"           content="{{ request.build_absolute_uri }}" />
 <meta property="og:type"          content="website" />
-<meta property="og:title"         content="{{ product.title }} Made in {{ product.get_full_state }} - Forged By Us" />
+<meta property="og:title"         content="{{ product.title }} Made in {{ product.get_full_state|default:"USA" }} - Forged By Us" />
 <meta property="og:description"   content="{{ product.short_description }}" />
 <meta property="og:image"         content="{{ product.image.url }}" />
 {% endblock %}
@@ -35,7 +35,7 @@ function pinIt()
             <!-- product Image and Zoom -->
 
             <div class="col-lg-12 no-padding">
-                <img src="{{ product.image.url }}" alt="{{ product.title }} by {{ product.brand }}. Made in {{ product.get_full_state }}." class="img-responsive">
+                <img src="{{ product.image.url }}" alt="{{ product.title }} by {{ product.brand }}. Made in {{ product.get_full_state|default:"USA" }}." class="img-responsive">
             </div>
         </div>
         <!--/ left column end -->
