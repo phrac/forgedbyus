@@ -23,7 +23,7 @@ function pinIt()
 </script>
 {% endblock %}
 
-{% block title %}{{ title }} Made in {{ product.get_full_state }}{% endblock %}
+{% block title %}{{ product.title }} - Made in {{ product.get_full_state|default:"USA" }}{% endblock %}
 
 {% block content %}
 <div class="container main-container headerOffset" vocab="http://schema.org/" typeof="Product">
