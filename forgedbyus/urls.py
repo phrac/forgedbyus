@@ -10,7 +10,7 @@ from products.models import Product
 from . import views
 
 info_dict = {
-    'queryset': Product.objects.all(),
+    'queryset': Product.objects.all().order_by('-created'),
     'date_field': 'created',
 }
 
