@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 from products.forms import NewAmazonProductForm, ProductForm
 from products.models import Product, Category
+from products.tasks import update_detail_views
 from products import amazon_utils
 from slugify import slugify
 
@@ -23,6 +24,8 @@ def category(request, slug):
 
 def details(request, product_id, slug=None):
     product = get_object_or_404(Product, product_id=product_id)
+    update_detail_views.delay(product.id)
+
     title = slugify(product.title, max_length=50, separator=' ', capitalize=True)
     if slug is None and product.slug is not None:
         return HttpResponsePermanentRedirect(reverse('products.views.details', args=[product.product_id, product.slug]))

@@ -6,8 +6,13 @@ from affiliates.models import Affiliate
 from datetime import datetime, timedelta
 from django.conf import settings
 from django.utils import timezone
+from django.db.models import F
 
 import math
+
+@task
+def update_detail_views(product):
+    Product.objects.filter(id=product).update(detail_views=F('detail_views')+1)
 
 @task
 def update_price():
