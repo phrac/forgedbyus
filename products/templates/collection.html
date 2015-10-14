@@ -1,13 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block home_active %}
+{% block collection_active %}
 active
-{% endblock %}
-
-{% block js %}
-<script src="{% static 'endless_pagination/js/endless-pagination.js' %}"></script>
-<script>$.endlessPaginate();</script>
 {% endblock %}
 
 {% block content %}
@@ -49,7 +44,20 @@ active
     <!-- Main component call to action -->
     <div class="morePost row featuredPostContainer style2 globalPaddingTop ">
         <h3 class="section-title style2 text-center"><span>Recent Finds</span></h3>
-        {% include 'item_page.html' %}
+
+        <div class="container">
+            <div class="row xsResponse">
+                {% for product in products %}
+                {% include 'product_item.html' %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="load-more-block text-center">
+                <a class="btn btn-thin" href="#">
+                    <i class="fa fa-plus-sign">+</i> load more products</a>
+            </div>
+        </div>
 
     </div>
     <!--/.featuredPostContainer-->

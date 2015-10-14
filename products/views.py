@@ -38,7 +38,8 @@ def details(request, product_id, slug=None):
     return render(request, template, {'product':product, 'title':title})
 
 def collection(request, slug):
-    pass
+    collection = get_object_or_404(Collection, slug=slug)
+    return render(request, 'collection.html', {'collection':collection})
 
 @staff_member_required
 def add_asin(request):

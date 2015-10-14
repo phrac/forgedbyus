@@ -1,0 +1,16 @@
+{% load endless %}
+<div class="container">
+    <div class="row xsResponse">
+        {% lazy_paginate 24 products %}
+        {% for product in products %}
+        {% include 'product_item.html' %}
+        {% endfor %}
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="text-center">
+            {% show_more "load more products" %}
+    </div>
+</div>

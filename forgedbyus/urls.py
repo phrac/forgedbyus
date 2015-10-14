@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^about/$', TemplateView.as_view(template_name="about.html"), name='about'),
 
     url(r'^search/', include('haystack.urls')),
+    url(r'^collections/(?P<slug>[-\w]+)/$', product_views.collection, name='collections'),
     url(r'^products/', include(product_urls)),
     url(r'^admin/', include(admin.site.urls)),
 

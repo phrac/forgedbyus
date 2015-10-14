@@ -21,6 +21,7 @@ INSTALLED_APPS = (
 
     # third party packages
     'djcelery',
+    'endless_pagination',
     'haystack',
     'storages',
     'widget_tweaks',

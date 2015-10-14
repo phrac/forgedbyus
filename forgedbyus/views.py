@@ -6,8 +6,12 @@ import mailchimp
 from products.models import Product
 
 def index(request):
-    products = Product.objects.all().order_by('-created')[:24]
-    return render(request,'index.html', {'products':products,})
+    products = Product.objects.all().order_by('-created')[:48]
+    if request.is_ajax():
+        template = 'item_page.html'
+    else:
+        template = 'index.html'
+    return render(request, template, {'products':products,})
 
 def subscribe(request, list_id):
     try:
