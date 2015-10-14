@@ -99,11 +99,21 @@ class Product(models.Model):
         return 'product', (), {'product_id':self.product_id, 'slug': self.slug}
 
 class Collection(models.Model):
-    name = models.CharField(max_length=32, unique=True)
+    name = models.CharField(max_length=128, unique=True)
+    story = models.TextField(null=True)
     products = models.ManyToManyField(Product)
-    image = models.ImageField()
+    parallax = models.ImageField(null=True, blank=True)
+    banner = models.ImageField(null=True, blank=True)
+    featured = models.BooleanField(default=False)
+    slug = models.SlugField(null=True, blank=True)
+
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = awesome_slugify(self.name, max_length=settings.SLUG_MAX_LENGTH, to_lower=True)
+        super(Product, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.name

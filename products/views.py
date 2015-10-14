@@ -37,6 +37,9 @@ def details(request, product_id, slug=None):
         template = 'details.html'
     return render(request, template, {'product':product, 'title':title})
 
+def collection(request, slug):
+    pass
+
 @staff_member_required
 def add_asin(request):
     if request.method == 'POST':
