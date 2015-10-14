@@ -101,7 +101,7 @@ class Product(models.Model):
 class Collection(models.Model):
     name = models.CharField(max_length=128, unique=True)
     story = models.TextField(null=True)
-    products = models.ManyToManyField(Product)
+    products = models.ManyToManyField(Product, blank=True)
     parallax = models.ImageField(null=True, blank=True)
     banner = models.ImageField(null=True, blank=True)
     featured = models.BooleanField(default=False)
@@ -113,7 +113,7 @@ class Collection(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = awesome_slugify(self.name, max_length=settings.SLUG_MAX_LENGTH, to_lower=True)
-        super(Product, self).save(*args, **kwargs)
+        super(Collection, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.name
