@@ -20,7 +20,11 @@ def category_index(request):
 def category(request, slug):
     category = get_object_or_404(Category, slug=slug)
     products = Product.objects.filter(category=category)
-    return render(request, 'category.html', {'category':category, 'products':products})
+    if request.is_ajax():
+        template = 'category_page.html'
+    else:
+        template = 'category.html'
+    return render(request, template, {'category':category, 'products':products})
 
 def details(request, product_id, slug=None):
     product = get_object_or_404(Product, product_id=product_id)
