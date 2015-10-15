@@ -11,20 +11,21 @@ import tempfile
 import time
 
 class Command(BaseCommand):
-    products = Product.objects.all().order_by('-created')
-    amazon = AmazonAPI(settings.AWS_ACCESS_KEY_ID,
-                       settings.AWS_SECRET_ACCESS_KEY,
-                       settings.AWS_ASSOCIATE_TAG)
+    def handle(self, *args, **options):
+        products = Product.objects.all().order_by('-created')
+        amazon = AmazonAPI(settings.AWS_ACCESS_KEY_ID,
+                           settings.AWS_SECRET_ACCESS_KEY,
+                           settings.AWS_ASSOCIATE_TAG)
 
-    for p in products:
-        print "Fetching %s..." % p.asin
-        try:
-            az = amazon.lookup(ItemId=p.asin)
-            lf, file_ext = amazon_utils.fetch_image(az.large_image_url)
-            large_image = amazon_utils.fit_image(lf, (699, 875))
-            thumb = amazon_utils.fit_image(lf, (285, 340), margin=100)
-            p.image.save("%s-large.%s" % (p.product_id, file_ext), files.File(large_image))
-            p.thumb.save("%s-small.%s" % (p.product_id, file_ext), files.File(thumb))
-        except:
-            print 'failed'
-        time.sleep(1)
+        for p in products:
+            print "Fetching %s..." % p.asin
+            try:
+                az = amazon.lookup(ItemId=p.asin)
+                lf, file_ext = amazon_utils.fetch_image(az.large_image_url)
+                large_image = amazon_utils.fit_image(lf, (699, 875))
+                thumb = amazon_utils.fit_image(lf, (285, 340), margin=100)
+                p.image.save("%s-large.%s" % (p.product_id, file_ext), files.File(large_image))
+                p.thumb.save("%s-small.%s" % (p.product_id, file_ext), files.File(thumb))
+            except:
+                print 'failed'
+            time.sleep(1)
