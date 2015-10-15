@@ -62,7 +62,15 @@
                     <div class="pull-left ">
                         {% if user.is_staff %}
                         <ul class="userMenu ">
-                            <li><a href="{% url 'products.views.add_asin' %}"> <span class="hidden-xs"><i class="fa fa-plus-square"> </i> ASIN</span></a></li>
+                            <li>
+                                <a href="{% url 'products.views.add_collection' %}">
+                                    <span class="hidden-xs"><i class="fa fa-plus-square"> </i> Collection</span>
+                                </a>
+                                <a href="{% url 'products.views.add_asin' %}">
+                                    <span class="hidden-xs"><i class="fa fa-plus-square"> </i> ASIN</span>
+                                </a>
+
+                            </li>
                         </ul>
                         {% endif %}
                     </div>

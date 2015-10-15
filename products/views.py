@@ -3,8 +3,8 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponsePermanentRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 
-from products.forms import NewAmazonProductForm, ProductForm
-from products.models import Product, Category
+from products.forms import NewAmazonProductForm, ProductForm, CollectionForm
+from products.models import Product, Category, Collection
 from products.tasks import update_detail_views
 from products import amazon_utils
 from slugify import slugify
@@ -68,3 +68,14 @@ def add_product(request, product_id=None):
     else:
         productform = ProductForm(instance=product)
     return render(request, 'add_product.html', {'form': productform})
+
+@staff_member_required
+def add_collection(request):
+    if request.method == 'POST':
+        form = CollectionForm(request.POST)
+        if form.is_valid():
+            collection = form.save()
+            return HttpResponseRedirect(collection.get_absolute_url())
+    else:
+        form = CollectionForm()
+    return render(request, 'add_collection.html', {'form': form})

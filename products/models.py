@@ -115,5 +115,9 @@ class Collection(models.Model):
             self.slug = awesome_slugify(self.name, max_length=settings.SLUG_MAX_LENGTH, to_lower=True)
         super(Collection, self).save(*args, **kwargs)
 
+    @models.permalink
+    def get_absolute_url(self):
+        return 'collections', (), {'slug':self.slug}
+
     def __unicode__(self):
         return self.name
