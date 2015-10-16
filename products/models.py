@@ -96,7 +96,7 @@ class Product(models.Model):
 
     def twitter_text(self):
         import urllib
-        return urllib.quote_plus("%s by %s - Made in %s. #MadeInAmerica #AmericanMade" % (self.title, self.brand, self.get_full_state()))
+        return urllib.quote_plus("%s by %s - Made in %s. #MadeInAmerica " % (self.title, self.brand, self.get_full_state()))
 
     @models.permalink
     def get_absolute_url(self):
