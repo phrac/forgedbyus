@@ -90,13 +90,13 @@ class Product(models.Model):
 
     def get_full_state(self):
         if self.state_of_origin:
-            return [x[1] for x in US_STATES if x[0] == self.state_of_origin][0].upper()
+            return [x[1] for x in US_STATES if x[0] == self.state_of_origin][0].title()
         else:
             return 'USA'
 
     def twitter_text(self):
         import urllib
-        return urllib.quote_plus("%s by %s - Made in %s. #MadeInAmerica #AmericanMade" % (self.title, self.brand, self.get_full_state().capitalize()))
+        return urllib.quote_plus("%s by %s - Made in %s. #MadeInAmerica #AmericanMade" % (self.title, self.brand, self.get_full_state()))
 
     @models.permalink
     def get_absolute_url(self):

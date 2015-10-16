@@ -56,7 +56,7 @@ function pinIt()
             <h3 class="product-code"><a href="{% url 'products.views.category_index' %}">Departments</a> > <a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h3>
 
             <div class="rating">
-                <p>MADE IN: <strong>{{ product.get_full_state|default:"USA" }}</strong></p>
+                <p>MADE IN: <strong>{{ product.get_full_state|default:"USA"|upper }}</strong></p>
             </div>
             <div class="product-price">
                 <span class="price-sales"> ${{ product.current_price }}</span>
