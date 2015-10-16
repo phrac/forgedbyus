@@ -92,7 +92,11 @@ class Product(models.Model):
         if self.state_of_origin:
             return [x[1] for x in US_STATES if x[0] == self.state_of_origin][0].upper()
         else:
-            return None
+            return 'USA'
+
+    def twitter_text(self):
+        import urllib
+        return urllib.quote_plus("%s by %s - Made in %s. #MadeInAmerica #AmericanMade" % (self.title, self.brand, self.get_full_state()))
 
     @models.permalink
     def get_absolute_url(self):
