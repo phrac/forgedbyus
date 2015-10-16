@@ -8,6 +8,12 @@
 <meta property="og:title"         content="{{ product.title }} Made in {{ product.get_full_state|default:"USA" }} - Forged By Us" />
 <meta property="og:description"   content="{{ product.short_description }}. Made in {{ product.get_full_state|default:"USA" }}." />
 <meta property="og:image"         content="{{ product.image.url }}" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@forgedbyus" />
+<meta name="twitter:title" content="{{ product.title }} Made in {{ product.get_full_state|default:"USA" }} - Forged By Us" />
+<meta name="twitter:description" content="{{ product.short_description }}" />
+<meta name="twitter:image" content="{{ product.image.url }}" />
 {% endblock %}
 
 {% block js %}
@@ -114,8 +120,7 @@ function pinIt()
 
                 <div class="socialIcon">
                     <a href="http://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}"><i class="fa fa-facebook"></i></a>
-                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{ product.twitter_text }}+{{ request.build_absolute_uri }}" data-size="large"><i class="fa fa-twitter"></i></a>
-                    <a href="#"> <i class="fa fa-google-plus"></i></a>
+                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ product.twitter_text }}" data-size="large"><i class="fa fa-twitter"></i></a>
                     <a href="javascript:pinIt();"><i class="fa fa-pinterest"></i></a>
                 </div>
             </div>
