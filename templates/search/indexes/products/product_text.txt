@@ -1,4 +1,7 @@
 {{ object.title }}
 {{ object.brand }}
+{{ object.manufacturer }}
 {{ object.short_description }}
+{{ object.description }}
+{{ object.get_full_state }}
 {{ object.features }}
