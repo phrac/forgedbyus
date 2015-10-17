@@ -54,7 +54,13 @@ function pinIt()
 
             <h3 property="brand" class="product-code">Brand : {{ product.brand }}</h3>
             <h3 class="product-code"><a href="{% url 'products.views.category_index' %}">Departments</a> > <a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h3>
-
+            {% if product.collections.all %}
+            <h3 class="product-code">Collections:
+                {% for c in product.collections.all %}
+                <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>&nbsp;
+                {% endfor %}
+            </h3>
+            {% endif %}
             <div class="rating">
                 <p>MADE IN: <strong>{{ product.get_full_state|default:"USA"|upper }}</strong></p>
             </div>

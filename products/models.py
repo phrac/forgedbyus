@@ -68,6 +68,7 @@ class Product(models.Model):
         models.CharField(max_length=128, null=True, blank=True),
         null=True, blank=True
     )
+    collections = models.ManyToManyField('Collection', blank=True)
     slug = models.SlugField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -105,7 +106,6 @@ class Product(models.Model):
 class Collection(models.Model):
     name = models.CharField(max_length=128, unique=True)
     story = models.TextField(null=True)
-    products = models.ManyToManyField(Product, blank=True)
     parallax = models.ImageField(null=True, blank=True)
     parallax_blurb = models.TextField(null=True)
     banner = models.ImageField(null=True, blank=True)
