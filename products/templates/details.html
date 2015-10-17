@@ -72,7 +72,7 @@ function pinIt()
             </div>
 
             <div class="details-description">
-                <p property="description">{{ product.short_description }} </p>
+                <p property="description"><strong>From {{ product.affiliate.name }}:</strong> <i>{{ product.short_description|safe }}</i></p>
             </div>
 
 
@@ -97,6 +97,9 @@ function pinIt()
             <!--/.cart-actions-->
 
             <div class="clear"></div>
+            <div class="details-description">
+                <p property="description">{{ product.description|safe }} </p>
+            </div>
 
             <div class="product-tab w100 clearfix">
 
