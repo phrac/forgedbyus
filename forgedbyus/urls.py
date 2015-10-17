@@ -32,3 +32,6 @@ urlpatterns = [
         {'sitemaps': {'products': GenericSitemap(info_dict, priority=0.6)}},
         name='django.contrib.sitemaps.views.sitemap'),
 ]
+
+from django.template.base import add_to_builtins
+add_to_builtins('forgedbyus.templatetags.product_tags')

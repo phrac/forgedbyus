@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load more_like_this %}
+{% load product_tags %}
 
 {% block head %}
 <meta property="og:url"           content="{{ request.build_absolute_uri }}" />
@@ -98,7 +99,7 @@ function pinIt()
 
             <div class="clear"></div>
             <div class="details-description">
-                <p property="description">{{ product.description|safe }} </p>
+                <p property="description">{{ product.description|render_db }} </p>
             </div>
 
             <div class="product-tab w100 clearfix">
