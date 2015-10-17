@@ -3,15 +3,16 @@ from django.contrib import messages
 from forgedbyus.utils import get_mailchimp_api
 import mailchimp
 
-from products.models import Product
+from products.models import Product, Collection
 
 def index(request):
     products = Product.objects.all().order_by('-created')[:48]
+    collections = Collection.objects.filter(featured=True)
     if request.is_ajax():
         template = 'item_page.html'
     else:
         template = 'index.html'
-    return render(request, template, {'products':products,})
+    return render(request, template, {'products':products, 'collections':collections})
 
 def subscribe(request, list_id):
     try:

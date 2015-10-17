@@ -107,6 +107,7 @@ class Collection(models.Model):
     story = models.TextField(null=True)
     products = models.ManyToManyField(Product, blank=True)
     parallax = models.ImageField(null=True, blank=True)
+    parallax_blurb = models.TextField(null=True)
     banner = models.ImageField(null=True, blank=True)
     featured = models.BooleanField(default=False)
     slug = models.SlugField(null=True, blank=True)

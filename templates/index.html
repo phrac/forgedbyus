@@ -16,7 +16,8 @@ active
         <div class="slider-content">
             <ul id="pager" class="container">
             </ul>
-            <div class="slider slider-v2">
+            <span class="prevControl sliderControl"> <i class="fa fa-angle-left fa-3x "></i></span> <span class="nextControl sliderControl"> <i class="fa fa-angle-right fa-3x "></i></span>
+            <div class="slider slider-v1" data-cycle-swipe=true data-cycle-prev=".prevControl" data-cycle-next=".nextControl" data-cycle-loader="wait">
                 <div class="slider-item slider-item-img1 "
                      data-cycle-pager-template="">
                     <div class="sliderInfo">
@@ -34,7 +35,31 @@ active
                             </div>
                         </div>
                     </div>
-                    <img alt="img" src="{% static 'images/parallax/parallax.jpg' %}" class="img-responsive parallaximg sliderImg"></div>
+                    <img alt="img" src="{% static 'images/parallax/parallax.jpg' %}" class="img-responsive parallaximg sliderImg">
+                </div>
+
+                <!-- Collection slider items -->
+                {% for c in collections %}
+                <div class="slider-item slider-item-img1 "
+                     data-cycle-pager-template="">
+                    <div class="sliderInfo">
+                        <div class="container">
+                            <div class="col-lg-5 col-md-5 col-sm-5 pull-left sliderText dark alpha80">
+                                <div class="inner">
+                                    <h1>{{ c.name }}</h1>
+
+                                    <p>
+                                        {{ c.parallax_blurb }}
+                                    </p>
+                                    <a href="{{ c.get_absolute.url }}" class="btn btn-success">SHOP NOW <span class="arrowUnicode">►</span></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img alt="img" src="{{ c.parallax.url }}" class="img-responsive parallaximg sliderImg">
+                </div>
+                {% endfor %}
                 <!--/.slider-item-->
             </div>
             <!--/.slider-v2-->
