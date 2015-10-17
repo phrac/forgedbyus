@@ -1,0 +1,17 @@
+{% load static %}
+<hr class="no-margin-top">
+<div class="container">
+    <div class="width100 section-block ">
+        <div class="row featureImg">
+            {% for c in collections %}
+            {% if c.banner %}
+            <div class="col-md-3 col-sm-3 col-xs-6">
+                <a href="{{ c.get_absolute_url }}"><img src="{{ c.banner.url }}" class="img-responsive" alt="{{ c.name }}"></a>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <!--/.row-->
+    </div>
+<!--/.section-block-->
+</div>
