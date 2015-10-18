@@ -6,12 +6,21 @@ from django.views.generic import TemplateView
 
 from products import urls as product_urls
 from products import views as product_views
-from products.models import Product
+from products.models import Product, Collection
 from . import views
 
-info_dict = {
+product_dict = {
     'queryset': Product.objects.all().order_by('-created'),
     'date_field': 'created',
+}
+collection_dict = {
+    'queryset': Collection.objects.all(),
+    'date_field': 'updated',
+}
+
+sitemaps = {
+    'products': GenericSitemap(product_dict, priority=0.6),
+    'collections': GenericSitemap(collection_dict, priority=0.6)
 }
 
 urlpatterns = [
@@ -29,8 +38,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^sitemap\.xml$', sitemap,
-        {'sitemaps': {'products': GenericSitemap(info_dict, priority=0.6)}},
-        name='django.contrib.sitemaps.views.sitemap'),
+        {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
 
 from django.template.base import add_to_builtins
