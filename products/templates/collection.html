@@ -9,6 +9,20 @@ active
 {{ collection.name }} - USA Made Collections
 {% endblock %}
 
+{% block head %}
+<meta property="og:url"           content="{{ request.build_absolute_uri }}" />
+<meta property="og:type"          content="website" />
+<meta property="og:title"         content="{{ collection.name }} - Forged By Us" />
+<meta property="og:description"   content="{{ collection.story }}" />
+<meta property="og:image"         content="{{ collection.parallax.url }}" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@forgedbyus" />
+<meta name="twitter:title" content="{{ collection.name }} - Forged By Us" />
+<meta name="twitter:description" content="{{ collection.story }}" />
+<meta name="twitter:image" content="{{ collection.parallax.url }}" />
+{% endblock %}
+
 {% block content %}
 <!-- Main component call to action -->
 <div class="banner">
