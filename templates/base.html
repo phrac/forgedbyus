@@ -70,8 +70,6 @@
                 </div>
                 <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6 no-margin no-padding">
                     <div class="pull-right">
-                        <ul class="userMenu">
-                            <li><span class="hidden-xs">Whatever good things we build end up building us.</span></li>
                     </div>
                 </div>
             </div>
@@ -100,7 +98,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="{% block home_active %}{% endblock %}"><a href="/"> Home </a></li>
-                    <li class="{% block dept_active %}{% endblock %}"><a href="{% url 'products.views.category_index' %}">Shop</a></li>
+                    <li class="{% block dept_active %}{% endblock %}"><a href="{% url 'products.views.category_index' %}">Departments</a></li>
+
                 </ul>
 
                 <!--- this part will be hidden for mobile version -->
