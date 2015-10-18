@@ -5,84 +5,75 @@
 active
 {% endblock %}
 
+{% block title %}
+{{ collection.name }} - USA Made Collections
+{% endblock %}
+
 {% block content %}
+<!-- Main component call to action -->
 <div class="banner">
     <div class="full-container">
         <div class="slider-content">
             <ul id="pager" class="container">
             </ul>
-            <div class="slider slider-v2">
+            <span class="prevControl sliderControl"> <i class="fa fa-angle-left fa-3x "></i></span> <span class="nextControl sliderControl"> <i class="fa fa-angle-right fa-3x "></i></span>
+            <div class="slider slider-v1" data-cycle-swipe=true data-cycle-prev=".prevControl" data-cycle-next=".nextControl" data-cycle-loader="wait">
                 <div class="slider-item slider-item-img1 "
                      data-cycle-pager-template="">
                     <div class="sliderInfo">
                         <div class="container">
                             <div class="col-lg-5 col-md-5 col-sm-5 pull-left sliderText dark alpha80">
                                 <div class="inner">
-                                    <h1>MADE IN AMERICA.</h1>
+                                    <h1>{{ collection.name }}</h1>
 
                                     <p>
-                                        Every single product we feature was built in America by your friends
-                                        neighbors, family, people in your community, and <strong>you</strong>.
+                                        {{ collection.parallax_blurb }}
                                     </p>
                                     <h1 class="pull-right">FORGED BY US.</h1>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <img alt="img" src="{% static 'images/parallax/parallax.jpg' %}" class="img-responsive parallaximg sliderImg"></div>
-                <!--/.slider-item-->
+                    <img alt="img" src="{{ collection.parallax.url }}" class="img-responsive parallaximg sliderImg">
+                </div>
             </div>
-            <!--/.slider-v2-->
         </div>
-        <!--/.slider-content-->
     </div>
-    <!--/.full-container-->
 </div>
-<!--/.banner style2-->
 
 <div class="container main-container">
-    <!-- Main component call to action -->
-    <div class="morePost row featuredPostContainer style2 globalPaddingTop ">
-        <h3 class="section-title style2 text-center"><span>Recent Finds</span></h3>
+    <div class="row innerPage">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="row userInfo">
+                <div class="col-xs-12 col-sm-12">
+                    <h1 class="title-big text-center section-title-style2">
+                        <span>{{ collection.name }}</span>
+                    </h1>
+                    <p class="lead">
+                        {{ collection.story }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Main component call to action -->
+
+    <div class="morePost row featuredPostContainer style2 globalPaddingTop ">
+        <div class="col-lg-12">
+            <h3 class="boxes-title-1"><span>{{ collection.name }} Items Made in America</span></h3>
+        </div>
         <div class="container">
             <div class="row xsResponse">
-                {% for product in products %}
+                {% for product in collection.product_set.all %}
                 {% include 'product_item.html' %}
                 {% endfor %}
             </div>
+            <!-- /.row -->
         </div>
-        <div class="row">
-            <div class="load-more-block text-center">
-                <a class="btn btn-thin" href="#">
-                    <i class="fa fa-plus-sign">+</i> load more products</a>
-            </div>
-        </div>
-
+        <!--/.container-->
     </div>
-    <!--/.featuredPostContainer-->
-</div>
-<!-- /main container -->
 
-<hr class="no-margin-top">
-<div class="container">
-    <div class="width100 section-block ">
-        <div class="row featureImg">
-            <div class="col-md-3 col-sm-3 col-xs-6"><a href="#"><img src="{% static "images/site/new-collection-1.jpg" %}"
-                                                                                 class="img-responsive" alt="img"></a>
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-6"><a href="#"><img src="{% static "images/site/new-collection-2.jpg" %}"
-                                                                                 class="img-responsive" alt="img"></a>
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-6"><a href="#"><img src="{% static "images/site/new-collection-3.jpg" %}"
-                                                                                 class="img-responsive" alt="img"></a>
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-6"><a href="#"><img src="{% static "images/site/new-collection-4.jpg" %}"
-                                                                                 class="img-responsive" alt="img"></a>
-            </div>
-        </div>
-        <!--/.row-->
-    </div>
-<!--/.section-block-->
 </div>
+    <!--/.section-block-->
 {% endblock %}
