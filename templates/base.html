@@ -45,14 +45,15 @@
 
 <body>
 
-{% if user.is_staff %}
 <!-- Fixed navbar start -->
 <div class="navbar navbar-tshop navbar-fixed-top megamenu" role="navigation">
     <div class="navbar-top">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
+
                     <div class="pull-left ">
+                        {% if user.is_staff %}
                         <ul class="userMenu ">
                             <li>
                                 <a href="{% url 'products.views.add_collection' %}">
@@ -64,6 +65,7 @@
 
                             </li>
                         </ul>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6 no-margin no-padding">
@@ -74,7 +76,6 @@
         </div>
     </div>
     <!--/.navbar-top-->
-{% endif %}
     <div class="w100 brandWrap">
         <div class="container">
             <div class="navbar-header">
