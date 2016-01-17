@@ -12,8 +12,8 @@
                 </a>
             </div>
             <div class="promotion">
-                <span class="new-product">MADE IN</span>
-                <span class="discount"> {{ product.get_full_state|default:"USA"}}</span>
+                <span class="discount">${{ product.current_price }}</span>
+                <span class="new-product"> {{ product.get_full_state|default:"USA"}}</span>
             </div>
             <a href="{{ product.get_absolute_url }}">
                 {% if product.thumb %}
@@ -23,12 +23,12 @@
         </div>
         <br />
 
-        <div class="action-control">
+        <!--<div class="action-control">
             <a rel="nofollow" target="_blank" href="{{ product.get_amazon_url }}" class="btn btn-primary btn-sharp" data-togle="tooltip" title="price as of {{ product.price_updated }}">
                 <span class="add2cart" tooltip="test">
-                    ${{ product.current_price}} at {{ product.affiliate.name }}
+                    Check it out
                 </span>
             </a>
-        </div>
+        </div>-->
     </div>
 </div>

@@ -2942,7 +2942,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
 .promotion {
     position: absolute;
     z-index: 10;
-    top: 0px;
+    top: 20px;
     left: 0;
     height: 24px;
     width: auto;
