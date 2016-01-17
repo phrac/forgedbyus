@@ -2944,7 +2944,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
     z-index: 10;
     top: 20px;
     left: 0;
-    height: 24px;
+    height: 34px;
     width: auto;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -2974,7 +2974,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
     display: inline-block;
     float: left;
     font-family: Oswald, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: lighter;
     height: 100%;
     padding: 3px 10px;
@@ -2987,7 +2987,7 @@ h1.bolder-style.dark, h1.bolder-style.dark a {
     display: inline-block;
     float: left;
     font-family: Oswald, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: lighter;
     height: 100%;
     padding: 3px 5px;
