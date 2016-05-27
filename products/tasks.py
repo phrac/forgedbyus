@@ -36,6 +36,8 @@ def update_price():
 def process_item(item):
     if item.price_and_currency[0] is not None:
         product = Product.objects.get(asin=item.asin)
+        old_price = product.current_price
         product.current_price = int(math.ceil(item.price_and_currency[0]))
         product.price_updated = timezone.now()
         product.save()
+        print "updated %s (%s to %s)" % (product.get_absolute_url(), old_price, product.current_price)
