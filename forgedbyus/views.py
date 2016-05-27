@@ -6,7 +6,7 @@ import mailchimp
 from products.models import Product, Collection
 
 def index(request):
-    products = Product.objects.all().order_by('-created')[:48]
+    products = Product.objects.filter(available=True).order_by('-created')[:48]
     collections = Collection.objects.filter(featured=True)
     if request.is_ajax():
         template = 'item_page.html'
