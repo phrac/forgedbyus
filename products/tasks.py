@@ -18,7 +18,7 @@ def update_detail_views(product):
 def update_price():
     time_threshold = timezone.now() - timedelta(minutes=settings.UPDATE_PRICE_THRESHOLD)
     affiliate = Affiliate.objects.get(name='Amazon')
-    products = Product.objects.filter(price_updated__lt=time_threshold, affiliate=affiliate)[:10]
+    products = Product.objects.filter(price_updated__lt=time_threshold, affiliate=affiliate).order_by('price_updated')[:10]
     print "found %s products to update" % products.count()
     if len(products) > 0:
         asins = [p.asin for p in products]
@@ -35,6 +35,7 @@ def update_price():
             process_item(az)
 
 def process_item(item):
+    print "in process_item(item) subroutine"
     if item.price_and_currency[0] is not None:
         product = Product.objects.get(asin=item.asin)
         old_price = product.current_price
@@ -42,3 +43,5 @@ def process_item(item):
         product.price_updated = timezone.now()
         product.save()
         print "updated %s (%s to %s)" % (product.get_absolute_url(), old_price, product.current_price)
+    else
+        print "no valid price found for %s" % product.asin
