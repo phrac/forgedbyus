@@ -10,6 +10,10 @@ class ProductIndex (indexes.ModelSearchIndex, indexes.Indexable):
     def get_model(self):
         return Product
 
+    def index_queryset(self, using=None):
+        """Used when the entire index for model is updated."""
+        return self.get_model().objects.filter(available=True)
+
     def prepare_features(self, obj):
         if obj.features:
             return ' '.join(obj.features)

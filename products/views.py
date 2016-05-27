@@ -19,7 +19,7 @@ def category_index(request):
 
 def category(request, slug):
     category = get_object_or_404(Category, slug=slug)
-    products = Product.objects.filter(category=category)
+    products = Product.objects.filter(category=category, available=True)
     if request.is_ajax():
         template = 'category_page.html'
     else:
