@@ -1,2 +1,2 @@
 web: gunicorn forgedbyus.wsgi --log-file -
-worker: celery worker -A forgedbyus worker -E -B --loglevel=INFO
+worker: celery worker -A forgedbyus -E -B --loglevel=INFO
