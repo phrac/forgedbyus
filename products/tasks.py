@@ -40,9 +40,10 @@ def process_item(item):
         product = Product.objects.get(asin=item.asin)
         old_price = product.current_price
         product.current_price = int(math.ceil(item.price_and_currency[0]))
-        product.price_updated = timezone.now()
-        product.save()
         print "updated %s (%s to %s)" % (product.get_absolute_url(), old_price, product.current_price)
     else:
         print "no valid price found for %s" % item.asin
-        print item.price_and_currency
+        product.available = False
+
+    product.price_updated = timezone.now()
+    product.save()

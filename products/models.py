@@ -70,6 +70,7 @@ class Product(models.Model):
     )
     collections = models.ManyToManyField('Collection', blank=True)
     slug = models.SlugField(null=True, blank=True)
+    available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
