@@ -43,5 +43,5 @@ def process_item(item):
         product.price_updated = timezone.now()
         product.save()
         print "updated %s (%s to %s)" % (product.get_absolute_url(), old_price, product.current_price)
-    else
+    else:
         print "no valid price found for %s" % product.asin
