@@ -36,8 +36,9 @@ def update_price():
 
 def process_item(item):
     print "in process_item(item) subroutine"
+    product = Product.objects.get(asin=item.asin)
+    
     if item.price_and_currency[0] is not None:
-        product = Product.objects.get(asin=item.asin)
         old_price = product.current_price
         product.current_price = int(math.ceil(item.price_and_currency[0]))
         product.available = True
