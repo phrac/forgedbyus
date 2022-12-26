@@ -34,4 +34,4 @@ SQLAlchemy==1.0.8
 static3==0.6.1
 Unidecode==0.4.18
 urllib3==1.12
-wheel==0.24.0
+wheel==0.38.1
